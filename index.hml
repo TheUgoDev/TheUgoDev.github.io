@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TheUgoDev - TEST| Expert AI Architect & Software Executor</title>
+    <title>TheUgoDev| Expert AI Architect & Software Executor</title>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; margin: 0; padding: 0; }
         .hero { background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1000'); background-size: cover; padding: 100px 20px; text-align: center; border-bottom: 4px solid #f1c40f; }
@@ -22,7 +22,7 @@
     <div class="container">
         <div class="card">
             <h2>// MISSION</h2>
-            <p>Trasformo idee complesse in architetture software solide. Non sono solo un developer, sono un <strong>realizzatore</strong> focalizzato sul ROI e sull'efficienza tecnica.</p>
+            <p>TEST - Trasformo idee complesse in architetture software solide. Non sono solo un developer, sono un <strong>realizzatore</strong> focalizzato sul ROI e sull'efficienza tecnica.</p>
         </div>
         <div class="card">
             <h2>// SOLUZIONI READY-TO-DEPLOY</h2>
@@ -41,4 +41,5 @@
 </body>
 
 </html>
+
 
