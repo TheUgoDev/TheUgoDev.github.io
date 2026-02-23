@@ -2,38 +2,40 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>TheUgoDev | Expert AI & Software Executor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheUgoDev | Expert AI Architect & Software Executor</title>
     <style>
-        body { font-family: 'Courier New', monospace; background: #0a0a0a; color: #00ff41; padding: 50px; line-height: 1.6; }
-        .container { max-width: 800px; margin: auto; }
-        h1 { font-size: 3em; color: #fff; border-bottom: 2px solid #fff; }
-        .highlight { color: #f1c40f; } /* Giallo per richiamare il tuo vecchio design */
-        .section { margin-top: 40px; }
-        .cta { background: #f1c40f; color: #000; padding: 10px 20px; text-decoration: none; font-weight: bold; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; margin: 0; padding: 0; }
+        .hero { background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1000'); background-size: cover; padding: 100px 20px; text-align: center; border-bottom: 4px solid #f1c40f; }
+        .hero h1 { font-size: 3.5em; margin: 0; color: #f1c40f; }
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        .card { background: #1a1a1a; padding: 25px; margin-bottom: 20px; border-left: 5px solid #f1c40f; }
+        .btn { display: inline-block; background: #f1c40f; color: #000; padding: 15px 30px; text-decoration: none; font-weight: bold; margin-top: 20px; border-radius: 5px; }
+        .tech-tag { display: inline-block; background: #333; padding: 5px 10px; margin: 5px; font-size: 0.8em; border-radius: 3px; color: #f1c40f; }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="hero">
         <h1>> TheUgoDev</h1>
-        <p class="highlight">Expert AI Architect & Software Executor</p>
-        
-        <div class="section">
+        <p>Expert AI Architect & Software Executor</p>
+    </div>
+    <div class="container">
+        <div class="card">
             <h2>// MISSION</h2>
-            <p>Le aziende perdono tempo in test infruttuosi. Io realizzo soluzioni AI concrete che scalano. 
-               Dall'addestramento di Chatbot intelligenti all'integrazione di sistemi complessi.</p>
+            <p>Trasformo idee complesse in architetture software solide. Non sono solo un developer, sono un <strong>realizzatore</strong> focalizzato sul ROI e sull'efficienza tecnica.</p>
         </div>
-
-        <div class="section">
-            <h2>// PERCHÉ SCEGLIERMI</h2>
-            <ul>
-                <li><strong>Esecuzione "Hands-on":</strong> Non vendo slide, consegno codice funzionante.</li>
-                <li><strong>Focus ROI:</strong> Ogni riga di codice deve generare valore per il business.</li>
-                <li><strong>Anonimato Professionale:</strong> Lavoro come consulente esterno focalizzato esclusivamente sul risultato tecnico.</li>
-            </ul>
+        <div class="card">
+            <h2>// SOLUZIONI READY-TO-DEPLOY</h2>
+            <p>Alcuni dei sistemi che ho progettato e che posso integrare nel tuo business:</p>
+            <div>
+                <span class="tech-tag">AI Chatbots</span>
+                <span class="tech-tag">PDF Automation Engines</span>
+                <span class="tech-tag">Interactive Data Visualizers</span>
+                <span class="tech-tag">Scalable Backends</span>
+            </div>
         </div>
-
-        <div class="section">
-            <a href="mailto:tua-email@esempio.com" class="cta">PARLIAMO DEL TUO PROGETTO</a>
+        <div style="text-align:center;">
+            <a href="mailto:tuamail@esempio.com" class="btn">DISCUTIAMO IL TUO PROGETTO</a>
         </div>
     </div>
 </body>
