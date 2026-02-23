@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>TheUgoDev | Expert AI & Software Executor</title>
+    <style>
+        body { font-family: 'Courier New', monospace; background: #0a0a0a; color: #00ff41; padding: 50px; line-height: 1.6; }
+        .container { max-width: 800px; margin: auto; }
+        h1 { font-size: 3em; color: #fff; border-bottom: 2px solid #fff; }
+        .highlight { color: #f1c40f; } /* Giallo per richiamare il tuo vecchio design */
+        .section { margin-top: 40px; }
+        .cta { background: #f1c40f; color: #000; padding: 10px 20px; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>> TheUgoDev</h1>
+        <p class="highlight">Expert AI Architect & Software Executor</p>
+        
+        <div class="section">
+            <h2>// MISSION</h2>
+            <p>Le aziende perdono tempo in test infruttuosi. Io realizzo soluzioni AI concrete che scalano. 
+               Dall'addestramento di Chatbot intelligenti all'integrazione di sistemi complessi.</p>
+        </div>
+
+        <div class="section">
+            <h2>// PERCHÉ SCEGLIERMI</h2>
+            <ul>
+                <li><strong>Esecuzione "Hands-on":</strong> Non vendo slide, consegno codice funzionante.</li>
+                <li><strong>Focus ROI:</strong> Ogni riga di codice deve generare valore per il business.</li>
+                <li><strong>Anonimato Professionale:</strong> Lavoro come consulente esterno focalizzato esclusivamente sul risultato tecnico.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <a href="mailto:tua-email@esempio.com" class="cta">PARLIAMO DEL TUO PROGETTO</a>
+        </div>
+    </div>
+</body>
+</html>
