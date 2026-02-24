@@ -1,0 +1,90 @@
+---
+layout: none
+---
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servizi e Soluzioni | TheUgoDev</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #000; color: #fff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; }
+        .highlight { color: #ffcc00; font-weight: bold; background: none !important; }
+        .btn-custom { background-color: #ffcc00; color: #000; font-weight: bold; border-radius: 0; padding: 10px 30px; text-decoration: none; }
+        .btn-custom:hover { background-color: #e6b800; }
+        .card-service { background: #0a0a0a; border: 1px solid #333; padding: 30px; height: 100%; transition: 0.3s; }
+        .card-service:hover { border-color: #ffcc00; }
+        .price-tag { color: #ffcc00; font-size: 1.2rem; font-weight: bold; margin-top: 15px; display: block; }
+        .section-title { border-bottom: 2px solid #ffcc00; padding-bottom: 20px; margin-bottom: 50px; }
+    </style>
+</head>
+<body>
+
+    {% include header.html %}
+
+    <main class="container py-5">
+        <div class="row">
+            <div class="col-12 text-center section-title">
+                <h1 class="display-4 fw-bold">// SERVIZI & SOLUZIONI</h1>
+                <p class="lead highlight">Prezzi chiari. Esecuzione immediata. Zero burocrazia.</p>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card-service">
+                    <h2 class="h4 highlight mb-3">1. AI Chatbot Custom (Lead Generation & Supporto)</h2>
+                    <p class="small text-secondary">Ideale per aziende che vogliono automatizzare il primo contatto con i clienti o il supporto tecnico.</p>
+                    <p><strong>Cosa offro:</strong> Progettazione e addestramento di un assistente AI basato sui tuoi dati aziendali.</p>
+                    <p><strong>Vantaggio:</strong> Disponibilità 24/7 e riduzione dei tempi di risposta dell'80%.</p>
+                    <span class="price-tag">Prezzo: Da €1.200 <small class="text-white fw-light">(Setup una tantum)</small></span>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card-service">
+                    <h2 class="h4 highlight mb-3">2. Automazione Flussi Documentali (PDF & Data)</h2>
+                    <p class="small text-secondary">Per uffici che perdono ore a generare fatture, report o contratti.</p>
+                    <p><strong>Cosa offro:</strong> Creazione di motori automatizzati per la generazione e gestione massiva di documenti PDF.</p>
+                    <p><strong>Vantaggio:</strong> Eliminazione dell'errore umano e velocità istantanea.</p>
+                    <span class="price-tag">Prezzo: Da €800 <small class="text-white fw-light">(In base alla complessità)</small></span>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card-service">
+                    <h2 class="h4 highlight mb-3">3. Sviluppo App & Beta Testing</h2>
+                    <p class="small text-secondary">Hai un'idea per un'app o un software che ha bisogno di una revisione profonda prima del lancio?</p>
+                    <p><strong>Cosa offro:</strong> Sviluppo di applicazioni mobile e sessioni di Beta Testing tecnico. Individuo bug critici e ottimizzo l'esperienza utente (UX).</p>
+                    <p><strong>Vantaggio:</strong> Lanci un prodotto rifinito, evitando recensioni negative e costi di riparazione post-lancio.</p>
+                    <span class="price-tag">Prezzo: Su preventivo <small class="text-white fw-light">(In base all'architettura)</small></span>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card-service">
+                    <h2 class="h4 highlight mb-3">4. Maintenance & Audit Tecnico</h2>
+                    <p class="small text-secondary">Per chi vuole mantenere i propri sistemi sicuri o vuole capire come integrare l'AI nel proprio workflow.</p>
+                    <p><strong>Cosa offro:</strong> Manutenzione ordinaria di siti/piattaforme e analisi dei processi aziendali per individuare sprechi tecnologici.</p>
+                    <p><strong>Vantaggio:</strong> Il tuo business non si ferma mai e investi solo in tecnologie che portano ROI.</p>
+                    <span class="price-tag">Prezzo: Da €350</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5 pt-5 text-center">
+            <div class="col-12">
+                <h3 class="mb-4">Pronto a far decollare il tuo progetto?</h3>
+                <a href="index.html#testimonials-section" class="btn btn-custom">CONTATTAMI ORA</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center py-4 border-top border-secondary bg-black mt-5">
+        <p>&copy; 2026 TheUgoDev - Expert AI Architect</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
