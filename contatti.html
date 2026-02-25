@@ -10,13 +10,9 @@ layout: none
     <title>Contatti | TheUgoDev</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* Base ereditata dalla index.html */
         body { background-color: #000; color: #fff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; }
         .highlight { color: #ffcc00; font-weight: bold; }
-        
-        /* Layout della pagina Contatti */
         .content-section { padding: 60px 0; }
-        .card-custom { background: #111; border: 1px solid #333; padding: 25px; height: 100%; border-radius: 8px; }
         
         /* Stile Testo Statico */
         .ai-intro-title { font-size: 0.9rem; letter-spacing: 2px; opacity: 0.8; }
@@ -25,46 +21,33 @@ layout: none
         .ai-list { font-size: 0.9rem; border-left: 2px solid #ffcc00; padding-left: 15px; margin-top: 20px; }
         .ai-list li { margin-bottom: 10px; }
         
-        /* Contenitore Chatbot Console */
+        /* Chatbot Console */
         #chat-console {
-            background: #0a0a0a;
-            border: 1px solid #ffcc00;
-            height: 500px;
-            display: flex;
-            flex-direction: column;
-            border-radius: 4px;
-            box-shadow: 0 0 20px rgba(255, 204, 0, 0.1);
+            background: #0a0a0a; border: 1px solid #ffcc00; height: 400px;
+            display: flex; flex-direction: column; border-radius: 4px;
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.1); margin-bottom: 20px;
         }
-        #chat-messages {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 0.9rem;
-        }
-        #chat-input-area {
-            display: flex;
-            border-top: 1px solid #333;
-            background: #111;
-        }
-        #chat-input {
-            flex: 1;
-            background: transparent;
-            border: none;
-            color: #ffcc00;
-            padding: 15px;
-            outline: none;
-        }
-        #chat-send {
-            background: #ffcc00;
-            color: #000;
-            border: none;
-            padding: 0 25px;
-            font-weight: bold;
-            cursor: pointer;
-        }
+        #chat-messages { flex: 1; padding: 20px; overflow-y: auto; font-family: 'Courier New', Courier, monospace; font-size: 0.9rem; }
+        #chat-input-area { display: flex; border-top: 1px solid #333; background: #111; }
+        #chat-input { flex: 1; background: transparent; border: none; color: #ffcc00; padding: 15px; outline: none; }
+        #chat-send { background: #ffcc00; color: #000; border: none; padding: 0 25px; font-weight: bold; cursor: pointer; }
         .bot-msg { color: #ffcc00; margin-bottom: 10px; }
         .user-msg { color: #fff; margin-bottom: 10px; opacity: 0.8; }
+
+        /* NUOVO FORM DI CONTATTO */
+        #form-wrapper { border: 1px dashed #333; padding: 20px; border-radius: 4px; background: #050505; }
+        #form-container { display: none; margin-top: 20px; padding-top: 20px; border-top: 1px solid #222; }
+        .form-control-custom { 
+            background: #111; border: 1px solid #333; color: #ffcc00; 
+            border-radius: 0; margin-bottom: 15px; font-family: 'Courier New', monospace;
+        }
+        .form-control-custom:focus { background: #151515; border-color: #ffcc00; color: #ffcc00; box-shadow: none; }
+        .btn-toggle-form { 
+            background: transparent; border: 1px solid #ffcc00; color: #ffcc00; 
+            padding: 10px 20px; font-size: 0.8rem; font-weight: bold; transition: 0.3s;
+        }
+        .btn-toggle-form:hover { background: #ffcc00; color: #000; }
+        .btn-submit-form { background: #ffcc00; color: #000; border: none; font-weight: bold; width: 100%; padding: 12px; }
     </style>
 </head>
 <body>
@@ -74,36 +57,35 @@ layout: none
     <main class="content-section">
         <div class="container">
             <div class="row g-5">
-                
                 <div class="col-lg-5">
                     <div class="ai-intro-title highlight text-uppercase">// ASSISTENTE VIRTUALE THEUGODEV</div>
                     <div class="ai-quote">"Hai una sfida tecnica? Chiedi alla mia IA."</div>
-                    
                     <div class="ai-description">
-                        Mentre sono impegnato a scrivere codice o a progettare architetture, ho addestrato questo assistente per darti risposte immediate. 
-                        Non è un semplice bot, ma un punto di accesso diretto al mio metodo di lavoro.
+                        Mentre sono impegnato a scrivere codice, ho addestrato questo assistente per darti risposte immediate.
                     </div>
+                    
+                    <div id="form-wrapper" class="mt-5">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="small opacity-50 text-uppercase">Form Tradizionale</span>
+                            <button class="btn-toggle-form" id="btn-activate">ATTIVA FORM</button>
+                        </div>
 
-                    <div class="mt-4">
-                        <span class="small fw-bold text-uppercase opacity-50">Cosa puoi chiedere:</span>
-                        <ul class="list-unstyled ai-list">
-                            <li><span class="highlight">▹</span> <strong>Fattibilità:</strong> "Posso automatizzare i report PDF?"</li>
-                            <li><span class="highlight">▹</span> <strong>Integrazioni:</strong> "Come inserisco l'IA nel mio sito?"</li>
-                            <li><span class="highlight">▹</span> <strong>Preventivi:</strong> "Costi per sessione Beta Testing?"</li>
-                            <li><span class="highlight">▹</span> <strong>Dettagli:</strong> "Che architetture usi per i Chatbot?"</li>
-                        </ul>
+                        <div id="form-container">
+                            <form id="contact-form">
+                                <input type="text" id="f-nome" class="form-control form-control-custom" placeholder="Nome / Azienda" required>
+                                <input type="text" id="f-motivo" class="form-control form-control-custom" placeholder="Oggetto / Motivo" required>
+                                <input type="text" id="f-recapito" class="form-control form-control-custom" placeholder="Email o Telefono" required>
+                                <button type="submit" class="btn btn-submit-form" id="btn-submit">INVIA MESSAGGIO</button>
+                            </form>
+                            <div id="form-status" class="mt-2 small text-center"></div>
+                        </div>
                     </div>
-
-                    <p class="mt-4 small opacity-75">
-                        Se la tua richiesta richiede una valutazione umana approfondita, il bot ti aiuterà a lasciarmi un messaggio prioritario. <strong>Mettilo alla prova.</strong>
-                    </p>
                 </div>
 
                 <div class="col-lg-7">
                     <div id="chat-console">
                         <div id="chat-messages">
                             <div class="bot-msg">> SYSTEM: Inizializzazione AI Assistant...</div>
-                            <div class="bot-msg">> STATUS: Pronto. Inserisci una richiesta qui sotto.</div>
                         </div>
                         <div id="chat-input-area">
                             <input type="text" id="chat-input" placeholder="Scrivi un comando..." autocomplete="off">
@@ -111,7 +93,6 @@ layout: none
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </main>
@@ -121,6 +102,7 @@ layout: none
     </footer>
 
     <script>
+        // LOGICA CHATBOT (Invariata)
         let sessionId = null;
         const chatMessages = document.getElementById('chat-messages');
         const chatInput = document.getElementById('chat-input');
@@ -129,29 +111,21 @@ layout: none
         async function sendMessage() {
             const message = chatInput.value.trim();
             if (!message) return;
-
-            // Mostra messaggio utente
             appendMessage('user', `> ${message}`);
             chatInput.value = '';
-
             try {
                 const response = await fetch('https://theugodevchatbot.onrender.com/chat', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ 
-                        message: message,
-                        session_id: sessionId 
-                    })
+                    body: JSON.stringify({ message: message, session_id: sessionId })
                 });
-                
                 const data = await response.json();
-                sessionId = data.session_id; // Salva la sessione per mantenere la cronologia
+                sessionId = data.session_id;
                 appendMessage('bot', `> ${data.response}`);
             } catch (error) {
-                appendMessage('bot', `> ERROR: Connessione al server fallita. Riprova tra poco.`);
+                appendMessage('bot', `> ERROR: Connessione fallita.`);
             }
         }
-
         function appendMessage(sender, text) {
             const div = document.createElement('div');
             div.className = sender === 'bot' ? 'bot-msg' : 'user-msg';
@@ -159,10 +133,62 @@ layout: none
             chatMessages.appendChild(div);
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
-
         chatSend.onclick = sendMessage;
         chatInput.onkeypress = (e) => { if(e.key === 'Enter') sendMessage(); };
-    </script>
 
+        // LOGICA FORM CONTATTI
+        const btnActivate = document.getElementById('btn-activate');
+        const formContainer = document.getElementById('form-container');
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+
+        btnActivate.onclick = () => {
+            formContainer.style.display = formContainer.style.display === 'block' ? 'none' : 'block';
+            btnActivate.innerText = formContainer.style.display === 'block' ? 'CHIUDI FORM' : 'ATTIVA FORM';
+        };
+
+        contactForm.onsubmit = async (e) => {
+            e.preventDefault();
+            const btnSubmit = document.getElementById('btn-submit');
+            
+            // Dati dal form
+            const payload = {
+                nome: document.getElementById('f-nome').value,
+                motivo: document.getElementById('f-motivo').value,
+                recapito: document.getElementById('f-recapito').value
+            };
+
+            btnSubmit.disabled = true;
+            btnSubmit.innerText = "INVIO IN CORSO...";
+            formStatus.innerText = "";
+
+            try {
+                // Utilizziamo lo stesso endpoint del chatbot, ma con un flag speciale o una nuova rotta
+                // Per semplicità, usiamo una rotta '/send-form' che aggiungeremo al Python
+                const response = await fetch('https://theugodevchatbot.onrender.com/send-form', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    formStatus.innerHTML = "<span class='text-success'>Messaggio inviato con successo!</span>";
+                    contactForm.reset();
+                    setTimeout(() => {
+                        formContainer.style.display = 'none';
+                        btnActivate.innerText = 'ATTIVA FORM';
+                        formStatus.innerText = "";
+                    }, 3000);
+                } else {
+                    throw new Error();
+                }
+            } catch (error) {
+                formStatus.innerHTML = "<span class='text-danger'>Errore durante l'invio. Riprova.</span>";
+            } finally {
+                btnSubmit.disabled = false;
+                btnSubmit.innerText = "INVIA MESSAGGIO";
+            }
+        };
+    </script>
 </body>
 </html>
