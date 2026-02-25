@@ -78,15 +78,18 @@ layout: none
                     </p>
                     <div id="form-wrapper" class="mt-5">
                         <div class="d-flex justify-content-between align-items-center">
-                            <span class="small opacity-15 text-uppercase">Form Tradizionale</span>
+                            <span class="small opacity-50 text-uppercase">Form Tradizionale</span>
                             <button class="btn-toggle-form" id="btn-activate">ATTIVA FORM</button>
                         </div>
 
                         <div id="form-container">
                             <form id="contact-form">
+                                <label class="form-label-yellow">Nome / Azienda</label>
                                 <input type="text" id="f-nome" class="form-control form-control-custom" placeholder="Nome / Azienda" required>
+                                <label class="form-label-yellow">Oggetto / Motivo</label>
                                 <input type="text" id="f-motivo" class="form-control form-control-custom" placeholder="Oggetto / Motivo" required>
-                                <input type="text" id="f-recapito" class="form-control form-control-custom" placeholder="Email o Telefono" required>
+                                <label class="form-label-yellow">Recapito (Email)</label>
+                                <input type="text" id="f-recapito" class="form-control form-control-custom" placeholder="Email" required>
                                 <button type="submit" class="btn btn-submit-form" id="btn-submit">INVIA MESSAGGIO</button>
                             </form>
                             <div id="form-status" class="mt-2 small text-center"></div>
