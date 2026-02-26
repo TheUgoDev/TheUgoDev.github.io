@@ -2,23 +2,23 @@
     <div class="container">
         <div class="row align-items-center">
             
-            <div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
-                <div class="footer-social-icons d-flex justify-content-center justify-content-md-start">
+            <div class="col-md-4 text-center text-md-start mb-4 mb-md-0">
+                <div class="footer-social-icons d-flex justify-content-center justify-content-md-start align-items-center">
                     <a href="https://www.addlance.com/profili/theugodev/programmatore-web-e-mobile/taranto/MTA5OTUx" target="_blank" class="me-3">
-                        <img src="assets/addlance.png" alt="Addlance" class="social-icon">
+                        <img src="{{ site.baseurl }}/assets/addlance.png" alt="Addlance" class="social-icon">
                     </a>
-                    </div>
+                </div>
             </div>
 
-            <div class="col-md-4 text-center mb-3 mb-md-0">
-                <p class="mb-0 text-secondary" style="font-size: 0.9rem;">
+            <div class="col-md-4 text-center mb-4 mb-md-0">
+                <p class="mb-1 footer-text-main">
                     &copy; 2026 <span class="highlight">TheUgoDev</span>. All Rights Reserved.
                 </p>
-                <small class="text-muted" style="font-size: 0.75rem;">Backend & AI Solutions</small>
+                <p class="footer-text-sub">Backend & AI Solutions</p>
             </div>
 
             <div class="col-md-4 text-center text-md-end">
-                <span class="text-muted small">Taranto, Italy | Remote</span>
+                <span class="footer-text-sub">Taranto, Italy | Remote</span>
             </div>
 
         </div>
@@ -28,23 +28,37 @@
 <style>
     .site-footer {
         background-color: #000;
-        border-top: 1px solid #1a1a1a;
+        border-top: 1px solid #333; /* Bordo leggermente più chiaro */
         color: #fff;
     }
 
+    /* Immagine Social: Dimensioni ottimizzate */
     .social-icon {
-        width: 32px;
-        height: 32px;
-        transition: transform 0.3s ease, filter 0.3s ease;
-        filter: grayscale(100%) brightness(0.8);
+        width: 45px;  /* Dimensione aumentata */
+        height: auto; /* Mantiene le proporzioni corrette senza schiacciare */
+        transition: transform 0.3s ease;
+        filter: brightness(1.1); /* Rende l'immagine più vivida */
     }
 
     .social-icon:hover {
-        transform: translateY(-3px);
-        filter: grayscale(0%) brightness(1.2);
+        transform: scale(1.1);
+    }
+
+    /* Testo Copyright: Schiarito per leggibilità */
+    .footer-text-main {
+        color: #e0e0e0; /* Grigio molto chiaro, quasi bianco */
+        font-size: 0.95rem;
+        font-weight: 500;
+    }
+
+    .footer-text-sub {
+        color: #b0b0b0; /* Grigio medio-chiaro per il sottotitolo */
+        font-size: 0.8rem;
+        margin: 0;
     }
 
     .highlight {
-        color: #ffcc00;
+        color: #ffcc00; /* Il tuo giallo oro */
+        font-weight: bold;
     }
 </style>
