@@ -37,11 +37,10 @@ async function showWardrobe() {
 
     const grid = document.getElementById('clothes-grid');
     grid.innerHTML = clothes.map(item => `
-        <div class="card">
-            <img src="${item.image_base64}" alt="${item.sub_category}">
-            <p><strong>${item.sub_category}</strong></p>
-            <p>${item.style} - ${item.season}</p>
-        </div>
+    <div class="card" data-id="${item.item_id}"> <img src="${item.image_base64}" alt="${item.sub_category}">
+        <p><strong>${item.sub_category}</strong></p>
+        <p>${item.style} - ${item.season}</p>
+    </div>
     `).join('');
 }
 let chatHistory = []; // Per mantenere il contesto della conversazione
