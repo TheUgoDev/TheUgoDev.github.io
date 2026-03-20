@@ -155,7 +155,7 @@ async function deleteCapo(itemId) {
     if (!confirm("Vuoi davvero eliminare questo capo?")) return;
 
     try {
-        const response = await fetch(`${API_URL}/delete-clothe/${itemId}`, {
+        const response = await fetch(`${API_URL}/clothes/${itemId}`, {
             method: 'DELETE'
         });
 
