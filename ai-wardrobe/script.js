@@ -1,6 +1,20 @@
 
 const API_URL = "https://ai-wardrobe-backend-qtz2.onrender.com";
 
+// Controlla lo stato al caricamento della pagina
+window.onload = () => {
+    const userId = localStorage.getItem('userId');
+    if (userId) {
+        // Se c'è un ID, mostriamo l'armadio (recuperando il nome se salvato)
+        showWardrobe();
+    } else {
+        // Altrimenti, assicuriamoci che il login sia visibile
+        document.getElementById('login-form').classList.remove('hidden');
+        document.getElementById('wardrobe-section').classList.add('hidden');
+    }
+};
+
+
 async function handleLogin() {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
@@ -97,7 +111,9 @@ function highlightClothes(ids) {
         if (card) card.classList.add('highlighted');
     });
 }
+
 function logout() {
-    localStorage.removeItem('userId');
-    location.reload();
+    console.log("Esecuzione logout..."); // Per debug
+    localStorage.clear(); // Pulisce tutto il contenuto
+    location.reload();    // Ricarica la pagina e attiva window.onload
 }
