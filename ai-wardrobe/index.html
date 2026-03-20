@@ -29,6 +29,15 @@
                 <h3>Chiedi al tuo Stylist Personale</h3>
                 <textarea id="user-question" placeholder="Es: Cosa posso mettere per un aperitivo formale?"></textarea>
                 <button id="ask-button" onclick="askStylist()">Ottieni Consiglio</button>
+
+                <div id="upload-section" class="upload-container">
+                    <h3>Aggiungi un nuovo capo</h3>
+                    <div class="upload-controls">
+                        <input type="file" id="file-input" accept="image/*">
+                        <button id="upload-button" onclick="handleUpload()">Carica e Analizza</button>
+                    </div>
+                    <div id="upload-status" class="status-msg"></div>
+                </div>
                 
                 <div id="ai-answer" class="ai-response hidden">
                     <div id="suggestion-text" style="white-space: pre-wrap; min-height: 100px;"></div>
