@@ -94,6 +94,7 @@ async function showWardrobe() {
     const grid = document.getElementById('clothes-grid');
     grid.innerHTML = clothes.map(item => `
         <div class="card" data-id="${item.item_id}">
+            <button class="delete-btn" onclick="deleteCapo('${item.item_id}')">×</button>
             <img src="${item.image_base64}" alt="${item.sub_category}">
             <p><strong>${item.sub_category}</strong></p>
             <p>${item.style} - ${item.season}</p>
@@ -148,4 +149,28 @@ function highlightClothes(ids) {
 function logout() {
     localStorage.clear();
     location.reload();
+}
+
+async function deleteCapo(itemId) {
+    if (!confirm("Vuoi davvero eliminare questo capo?")) return;
+
+    try {
+        const response = await fetch(`${API_URL}/delete-clothe/${itemId}`, {
+            method: 'DELETE'
+        });
+
+        if (response.ok) {
+            // Rimuove la card visivamente con un piccolo effetto
+            const card = document.querySelector(`[data-id="${itemId}"]`);
+            if (card) {
+                card.style.opacity = '0';
+                setTimeout(() => card.remove(), 300);
+            }
+        } else {
+            alert("Errore del server durante la cancellazione.");
+        }
+    } catch (error) {
+        console.error("Errore:", error);
+        alert("Errore di connessione al server.");
+    }
 }
