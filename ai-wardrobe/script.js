@@ -14,6 +14,49 @@ window.onload = () => {
     }
 };
 
+async function handleUpload() {
+    const fileInput = document.getElementById('file-input');
+    const btn = document.getElementById('upload-button');
+    const status = document.getElementById('upload-status');
+    const userId = localStorage.getItem('userId');
+
+    if (!fileInput.files[0]) {
+        status.innerText = "Seleziona prima un'immagine.";
+        return;
+    }
+
+    const file = fileInput.files[0];
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('user_id', userId);
+
+    btn.innerText = "Analisi AI in corso...";
+    btn.disabled = true;
+    status.innerText = "Il server sta rimuovendo lo sfondo e classificando il capo...";
+
+    try {
+        const response = await fetch(`${API_URL}/upload`, {
+            method: 'POST',
+            body: formData
+            // Nota: non impostare l'header Content-Type, il browser lo farà da solo per FormData
+        });
+
+        if (response.ok) {
+            status.innerText = "Capo aggiunto con successo!";
+            fileInput.value = ""; // Pulisci input
+            showWardrobe(); // Ricarica la griglia per vedere il nuovo capo
+        } else {
+            const err = await response.json();
+            status.innerText = "Errore: " + (err.detail || "Impossibile caricare");
+        }
+    } catch (error) {
+        status.innerText = "Errore di connessione al server.";
+        console.error(error);
+    } finally {
+        btn.innerText = "Carica e Analizza";
+        btn.disabled = false;
+    }
+}
 
 async function handleLogin() {
     const email = document.getElementById('email').value;
