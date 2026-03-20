@@ -20,20 +20,22 @@
             <p id="error-msg" class="error"></p>
         </div>
 
-        <div id="wardrobe-section" class="hidden">   
-             <hr>
+       <div id="wardrobe-section" class="hidden">
+            <h2>Benvenuto, <span id="user-name"></span>!</h2>
+        
             <div id="ai-stylist" class="stylist-container">
                 <h3>Chiedi al tuo Stylist Personale</h3>
                 <textarea id="user-question" placeholder="Es: Cosa posso mettere per un aperitivo formale?"></textarea>
                 <button id="ask-button" onclick="askStylist()">Ottieni Consiglio</button>
+                
                 <div id="ai-answer" class="ai-response hidden">
-                    <p id="suggestion-text"></p>
-                    <p><small>Capi consigliati evidenziati nell'armadio.</small></p>
+                    <div id="suggestion-text" style="white-space: pre-wrap; min-height: 100px;"></div>
+                    <p><small>Capi consigliati evidenziati con bordo blu nell'armadio.</small></p>
                 </div>
-            <h2>Benvenuto, <span id="user-name"></span>!</h2>
+            </div>
+        
+            <hr>
             <div id="clothes-grid" class="grid"></div>
-           
-</div>
         </div>
     </div>
     <script src="script.js"></script>
