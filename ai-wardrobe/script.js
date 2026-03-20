@@ -97,3 +97,7 @@ function highlightClothes(ids) {
         if (card) card.classList.add('highlighted');
     });
 }
+function logout() {
+    localStorage.removeItem('userId');
+    location.reload();
+}
