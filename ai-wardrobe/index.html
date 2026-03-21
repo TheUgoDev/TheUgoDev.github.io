@@ -1,30 +1,49 @@
-
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Wardrobe - Login</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
         <h1>AI Wardrobe</h1>
         <p>Il tuo stile, potenziato dall'Intelligenza Artificiale.</p>
-        
+
         <div id="login-form" class="form-container">
             <h2>Accedi</h2>
             <input type="email" id="email" placeholder="Email" required>
             <input type="password" id="password" placeholder="Password" required>
             <button onclick="handleLogin()">Entra nell'armadio</button>
+
+            <div
+                style="margin-top: 15px; font-size: 0.85em; color: #666; background: #eee; padding: 10px; border-radius: 5px;">
+                <strong>Utente Demo:</strong> test@test.it | <strong>Pass:</strong> test1234<br>
+                <em>(Funzioni di aggiunta/rimozione disabilitate)</em>
+            </div>
+
             <p id="error-msg" class="error"></p>
+            <hr>
+            <p>Non hai un account? <a href="#" onclick="showRegister()">Registrati qui</a></p>
         </div>
 
-       <div id="wardrobe-section" class="hidden">
+        <div id="register-section" class="form-container hidden">
+            <h2>Crea Account</h2>
+            <input type="text" id="reg-user" placeholder="Nome Utente" required>
+            <input type="email" id="reg-email" placeholder="Email" required>
+            <input type="password" id="reg-pass" placeholder="Password" required>
+            <button onclick="handleRegister()">Crea Account</button>
+            <p><a href="#" onclick="showLogin()">Torna al Login</a></p>
+        </div>
+
+        <div id="wardrobe-section" class="hidden">
             <div class="header-wardrobe">
                 <h2>Benvenuto, <span id="user-name"></span>!</h2>
                 <button class="logout-btn" onclick="logout()">Esci</button>
-            </div>        
+            </div>
             <div id="ai-stylist" class="stylist-container">
                 <h3>Chiedi al tuo Stylist Personale</h3>
                 <textarea id="user-question" placeholder="Es: Cosa posso mettere per un aperitivo formale?"></textarea>
@@ -38,17 +57,18 @@
                     </div>
                     <div id="upload-status" class="status-msg"></div>
                 </div>
-                
+
                 <div id="ai-answer" class="ai-response hidden">
                     <div id="suggestion-text" style="white-space: pre-wrap; min-height: 100px;"></div>
                     <p><small>Capi consigliati evidenziati con bordo blu nell'armadio.</small></p>
                 </div>
             </div>
-        
+
             <hr>
             <div id="clothes-grid" class="grid"></div>
         </div>
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>
