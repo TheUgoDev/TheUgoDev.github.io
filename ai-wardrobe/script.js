@@ -12,6 +12,17 @@ window.onload = () => {
     }
 };
 
+function showRegister() {
+    document.getElementById('login-form').classList.add('hidden');
+    document.getElementById('register-section').classList.remove('hidden');
+}
+
+function showLogin() {
+    document.getElementById('register-section').classList.add('hidden');
+    document.getElementById('login-form').classList.remove('hidden');
+}
+
+
 // 2. Funzione Login (CORRETTA)
 async function handleLogin() {
     const email = document.getElementById('email').value;
@@ -29,6 +40,7 @@ async function handleLogin() {
 
         if (response.ok) {
             localStorage.setItem('userId', data.user_id);
+            localStorage.setItem('userEmail', email); // Salviamo l'email per i controlli successivi
             document.getElementById('user-name').innerText = data.username;
             showWardrobe();
         } else {
@@ -45,6 +57,11 @@ async function handleUpload() {
     const btn = document.getElementById('upload-button');
     const status = document.getElementById('upload-status');
     const userId = localStorage.getItem('userId');
+    const userEmail = localStorage.getItem('userEmail'); // Salveremo l'email al login
+    if (userEmail === "test@test.it") {
+        alert("Modalità Demo: non puoi aggiungere capi in questo account.");
+        return;
+    }
 
     if (!fileInput.files[0]) {
         status.innerText = "Seleziona prima un'immagine.";
@@ -68,8 +85,8 @@ async function handleUpload() {
 
         if (response.ok) {
             status.innerText = "Capo aggiunto con successo!";
-            fileInput.value = ""; 
-            showWardrobe(); 
+            fileInput.value = "";
+            showWardrobe();
         } else {
             const err = await response.json();
             status.innerText = "Errore: " + (err.detail || "Impossibile caricare");
@@ -86,7 +103,9 @@ async function handleUpload() {
 async function showWardrobe() {
     document.getElementById('login-form').classList.add('hidden');
     document.getElementById('wardrobe-section').classList.remove('hidden');
-    
+    const userEmail = localStorage.getItem('userEmail');
+    const isTest = userEmail === "test@test.it";
+
     const userId = localStorage.getItem('userId');
     const response = await fetch(`${API_URL}/get-clothes?user_id=${userId}`);
     const clothes = await response.json();
@@ -94,12 +113,14 @@ async function showWardrobe() {
     const grid = document.getElementById('clothes-grid');
     grid.innerHTML = clothes.map(item => `
         <div class="card" data-id="${item.item_id}">
-            <button class="delete-btn" onclick="deleteCapo('${item.item_id}')">×</button>
-            <img src="${item.image_base64}" alt="${item.sub_category}">
+            ${!isTest ? `<button class="delete-btn" onclick="deleteCapo('${item.item_id}')">×</button>` : ''}
+        <img src="${item.image_base64}" alt="${item.sub_category}">
             <p><strong>${item.sub_category}</strong></p>
             <p>${item.style} - ${item.season}</p>
         </div>
     `).join('');
+    // Nascondi anche il box di upload se è test
+    document.getElementById('upload-section').style.display = isTest ? 'none' : 'block';
 }
 
 // 5. Stylist AI
@@ -108,7 +129,7 @@ async function askStylist() {
     const question = document.getElementById('user-question').value;
     const btn = document.getElementById('ask-button');
     const answerDiv = document.getElementById('ai-answer');
-    
+
     if (!question) return;
 
     btn.innerText = "Pensando...";
@@ -146,12 +167,85 @@ function highlightClothes(ids) {
     });
 }
 
+// --- FUNZIONE REGISTRAZIONE ---
+async function handleRegister() {
+    const username = document.getElementById('reg-username').value;
+    const email = document.getElementById('reg-email').value;
+    const password = document.getElementById('reg-password').value;
+    const errorMsg = document.getElementById('reg-error');
+    const successMsg = document.getElementById('reg-success');
+    const btn = document.getElementById('reg-button');
+
+    if (!username || !email || !password) {
+        errorMsg.innerText = "Tutti i campi sono obbligatori.";
+        return;
+    }
+
+    btn.innerText = "Registrazione in corso...";
+    btn.disabled = true;
+
+    try {
+        const response = await fetch(`${API_URL}/register`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, email, password })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            successMsg.innerText = "Account creato! Verrai reindirizzato al login...";
+            errorMsg.innerText = "";
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 2000);
+        } else {
+            errorMsg.innerText = data.detail || "Errore durante la registrazione";
+            btn.disabled = false;
+            btn.innerText = "Crea Account";
+        }
+    } catch (error) {
+        errorMsg.innerText = "Errore di connessione al server.";
+        btn.disabled = false;
+        btn.innerText = "Crea Account";
+    }
+}
+
+// --- LOGICA DI PROTEZIONE UTENTE DEMO ---
+
+// Modifica handleUpload esistente aggiungendo questo all'inizio:
+async function handleUpload() {
+    const userEmail = localStorage.getItem('userEmail');
+    if (userEmail === "test@test.it") {
+        alert("Account Demo: Non puoi aggiungere capi. Registrati con la tua email per farlo!");
+        return;
+    }
+    // ... resto del codice handleUpload esistente ...
+}
+
+// Modifica deleteCapo esistente aggiungendo questo all'inizio:
+async function deleteCapo(itemId) {
+    const userEmail = localStorage.getItem('userEmail');
+    if (userEmail === "test@test.it") {
+        alert("Account Demo: Non puoi eliminare capi. Registrati per gestire il tuo armadio!");
+        return;
+    }
+    // ... resto del codice deleteCapo esistente ...
+}
+
+
+
 function logout() {
     localStorage.clear();
     location.reload();
 }
 
 async function deleteCapo(itemId) {
+    const userEmail = localStorage.getItem('userEmail');
+    if (userEmail === "test@test.it") {
+        alert("Modalità Demo: non puoi eliminare capi in questo account.");
+        return;
+    }
     if (!confirm("Vuoi davvero eliminare questo capo?")) return;
 
     try {
