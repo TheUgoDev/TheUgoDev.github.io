@@ -47,7 +47,10 @@
             <div id="ai-stylist" class="stylist-container">
                 <h3>Chiedi al tuo Stylist Personale</h3>
                 <textarea id="user-question" placeholder="Es: Cosa posso mettere per un aperitivo formale?"></textarea>
-                <button id="ask-button" onclick="askStylist()">Ottieni Consiglio</button>
+                <div class="chat-buttons">
+                    <button id="ask-button" onclick="askStylist()">Invia</button>
+                    <button id="reset-chat" onclick="resetConversation()" style="background-color: #666;">Nuova Conversazione</button>
+                </div>
 
                 <div id="upload-section" class="upload-container">
                     <h3>Aggiungi un nuovo capo</h3>

@@ -1,5 +1,7 @@
 
 const API_URL = "https://ai-wardrobe-backend-qtz2.onrender.com";
+let chatHistory = []; 
+
 
 // 1. Inizializzazione
 window.onload = () => {
@@ -124,17 +126,22 @@ async function showWardrobe() {
 }
 
 // 5. Stylist AI
-let chatHistory = [];
+//let chatHistory = [];
 async function askStylist() {
-    const question = document.getElementById('user-question').value;
+    const questionInput = document.getElementById('user-question');
+    const question = questionInput.value.trim();
+
+    //const question = document.getElementById('user-question').value;
     const btn = document.getElementById('ask-button');
     const answerDiv = document.getElementById('ai-answer');
 
     if (!question) return;
 
+    chatHistory.push({ role: "user", content: question });
+
     btn.innerText = "Pensando...";
     btn.disabled = true;
-    chatHistory.push({ role: "user", content: question });
+    //chatHistory.push({ role: "user", content: question });
     const userId = localStorage.getItem('userId');
 
     try {
@@ -146,10 +153,12 @@ async function askStylist() {
 
         const data = await response.json();
         if (data.suggestion) {
-            document.getElementById('suggestion-text').innerText = data.suggestion;
+            //document.getElementById('suggestion-text').innerText = data.suggestion;
+            suggestionText.innerText = data.suggestion;
             answerDiv.classList.remove('hidden');
             chatHistory.push({ role: "model", content: data.suggestion });
             highlightClothes(data.selected_ids);
+            questionInput.value = ""; 
         }
     } catch (error) {
         console.error("Errore AI:", error);
@@ -238,6 +247,16 @@ async function deleteCapo(itemId) {
 function logout() {
     localStorage.clear();
     location.reload();
+}
+
+function resetConversation() {
+    chatHistory = [];
+    document.getElementById('suggestion-text').innerText = "";
+    document.getElementById('ai-answer').classList.add('hidden');
+    document.getElementById('user-question').value = "";
+    // Rimuove anche le evidenziazioni dai vestiti
+    document.querySelectorAll('.card').forEach(card => card.classList.remove('highlighted'));
+    alert("Conversazione resettata.");
 }
 
 async function deleteCapo(itemId) {
