@@ -134,6 +134,7 @@ async function askStylist() {
     //const question = document.getElementById('user-question').value;
     const btn = document.getElementById('ask-button');
     const answerDiv = document.getElementById('ai-answer');
+    const suggestionText = document.getElementById('suggestion-text');
 
     if (!question) return;
 
@@ -256,7 +257,12 @@ function resetConversation() {
     document.getElementById('user-question').value = "";
     // Rimuove anche le evidenziazioni dai vestiti
     document.querySelectorAll('.card').forEach(card => card.classList.remove('highlighted'));
+    if (suggestionText) suggestionText.innerText = "";
+    if (answerDiv) answerDiv.classList.add('hidden');
+    if (questionInput) questionInput.value = "";
+    
     alert("Conversazione resettata.");
+
 }
 
 async function deleteCapo(itemId) {
