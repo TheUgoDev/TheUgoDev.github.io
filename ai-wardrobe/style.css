@@ -1,13 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-body { font-family: 'Helvetica', sans-serif; background: #f4f4f4; text-align: center; padding: 50px; }
-.container { max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+body { 
+    font-family: 'Poppins', sans-serif; 
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); 
+    min-height: 100vh;
+}
+.container { 
+    max-width: 900px; 
+    border-radius: 20px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+}
 input { display: block; width: 80%; margin: 10px auto; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
-button { padding: 10px 20px; background: #000; color: #fff; border: none; cursor: pointer; transition: 0.3s; }
-button:hover { background: #333; }
+button { 
+    background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%); 
+    border-radius: 25px; 
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+button:hover { 
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 117, 252, 0.4);
+}
 .hidden { display: none; }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; margin-top: 20px; }
-.card { border: 1px solid #eee; padding: 10px; border-radius: 10px; }
+.card { 
+    background: white;
+    border: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
 .card img { width: 100%; border-radius: 5px; }
+.card:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25);
+}
 .card {position: relative; /* Necessario per il tasto absolute */}
 .error { color: red; font-size: 0.9em; }
 .stylist-container { margin-top: 30px; padding: 20px; background: #f9f9f9; border-radius: 10px; }
@@ -22,13 +48,10 @@ textarea {
 }
 
 .ai-response { 
-    margin-top: 20px; 
-    padding: 20px; 
-    background: #e3f2fd; 
-    border-left: 5px solid #2196f3; 
-    text-align: left;
-    font-size: 18px; /* Testo risposta più grande */
-    line-height: 1.5;
+    background: #ffffff; 
+    border-left: 5px solid #6a11cb; 
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.05);
 }
 
 /* Assicurati che questa classe esista per l'evidenziazione */
