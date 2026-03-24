@@ -183,8 +183,10 @@ layout: none
                     <div class="d-flex gap-3 mt-4">
                         <a href="https://theugodev.github.io/ai-wardrobe/" class="btn-custom"
                             style="text-decoration: none;">PROVA LA DEMO</a>
-                        <a href="servizi-e-soluzioni.html" class="btn btn-outline-warning rounded-0 fw-bold px-4"
-                            style="border-width: 2px;">DETTAGLI TECNICI</a>
+                        <a href="#" class="btn btn-outline-warning rounded-0 fw-bold px-4" style="border-width: 2px;"
+                            data-bs-toggle="modal" data-bs-target="#modalWardrobe" role="button">
+                            DETTAGLI TECNICI
+                        </a>
                     </div>
                 </div>
             </div>
@@ -194,6 +196,69 @@ layout: none
     {% include footer.html %}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <div class="modal fade" id="modalWardrobe" tabindex="-1" aria-labelledby="modalWardrobeLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content bg-black border border-warning" style="color: #fff;">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title highlight" id="modalWardrobeLabel">// GUIDA AI WARDROBE</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4" style="max-height: 70vh; overflow-y: auto;">
+                    <h4 class="mb-3">Benvenuto in <span class="highlight">AI Wardrobe</span></h4>
+                    <p>Il tuo stile, potenziato dall'Intelligenza Artificiale.</p>
+                    <p class="text-secondary small">AI Wardrobe non è solo un catalogo digitale, ma un vero Stylist
+                        Personale basato su Gemini AI che impara a conoscere il tuo armadio per consigliarti l'outfit
+                        perfetto.</p>
+
+                    <h5 class="mt-4 highlight text-uppercase small" style="letter-spacing: 1px;">🌟 Funzionalità
+                        Principali</h5>
+                    <ul class="list-unstyled ps-3 border-start border-warning">
+                        <li class="mb-2"><strong>Armadio Intelligente:</strong> Carica le foto; l'AI rimuove lo sfondo e
+                            analizza categoria, colore e stile.</li>
+                        <li class="mb-2"><strong>Stylist AI con Memoria:</strong> Chiedi consigli in chat. L'AI ricorda
+                            la conversazione e evidenzia i capi suggeriti.</li>
+                        <li><strong>Gestione Sicura:</strong> Account personale per salvare la tua collezione ovunque.
+                        </li>
+                    </ul>
+
+                    <div class="row mt-4">
+                        <div class="col-md-6 mb-3">
+                            <h6 class="highlight">💻 Versione Web</h6>
+                            <p class="text-secondary small">Ottimizzata per l'organizzazione.</p>
+                            <ul class="small text-secondary">
+                                <li>Registrazione o Utente Demo.</li>
+                                <li>Upload istantaneo con analisi AI.</li>
+                                <li>Chat Stylist interattiva.</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <h6 class="highlight">📱 Versione Android</h6>
+                            <p class="text-secondary small">Gemini Live sempre con te.</p>
+                            <ul class="small text-secondary">
+                                <li>Conversazione Vocale in tempo reale.</li>
+                                <li>Multimodalità tramite fotocamera.</li>
+                                <li>Libertà di movimento nei negozi.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="p-3 mt-3" style="background: rgba(255, 204, 0, 0.1); border-left: 4px solid #ffcc00;">
+                        <p class="mb-0 small">
+                            <strong>⚠️ Nota per i visitatori:</strong> L'Account Demo (<strong>test@test.it</strong>) è
+                            disponibile per sola visualizzazione. Registrati gratis per sbloccare l'upload.
+                        </p>
+                    </div>
+                </div>
+                <div class="modal-footer border-secondary">
+                    <button type="button" class="btn btn-outline-secondary btn-sm"
+                        data-bs-dismiss="modal">Chiudi</button>
+                    <a href="https://theugodev.github.io/ai-wardrobe/" class="btn-custom py-1 px-3"
+                        style="font-size: 0.9rem;">APRI APP</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
