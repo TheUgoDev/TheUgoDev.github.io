@@ -1,6 +1,6 @@
 
 const API_URL = "https://ai-wardrobe-backend-qtz2.onrender.com";
-let chatHistory = []; 
+let chatHistory = [];
 
 
 // 1. Inizializzazione
@@ -27,9 +27,16 @@ function showLogin() {
 
 // 2. Funzione Login (CORRETTA)
 async function handleLogin() {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
     const errorMsg = document.getElementById('error-msg');
+
+    // 1. Controllo preventivo: Campi vuoti
+    if (!email || !password) {
+        errorMsg.innerText = "Per favore, inserisci sia l'email che la password.";
+        return;
+    }
+
 
     try {
         const response = await fetch(`${API_URL}/login`, {
@@ -46,10 +53,18 @@ async function handleLogin() {
             document.getElementById('user-name').innerText = data.username;
             showWardrobe();
         } else {
-            errorMsg.innerText = data.detail || "Errore durante il login";
+            if (typeof data.detail === 'string') {
+                errorMsg.innerText = data.detail;
+            } else if (Array.isArray(data.detail)) {
+                // Questo gestisce gli errori di validazione di FastAPI (Pydantic)
+                errorMsg.innerText = "Dati non validi. Controlla il formato dell'email.";
+            } else {
+                errorMsg.innerText = "Credenziali errate o utente non trovato.";
+            }
         }
     } catch (error) {
-        errorMsg.innerText = "Impossibile connettersi al server.";
+        console.error("Errore login:", error);
+        errorMsg.innerText = "Impossibile connettersi al server. Riprova più tardi.";
     }
 } // <--- Questa chiusura mancava o era posizionata male
 
@@ -159,7 +174,7 @@ async function askStylist() {
             answerDiv.classList.remove('hidden');
             chatHistory.push({ role: "model", content: data.suggestion });
             highlightClothes(data.selected_ids);
-            questionInput.value = ""; 
+            questionInput.value = "";
         }
     } catch (error) {
         console.error("Errore AI:", error);
@@ -179,15 +194,19 @@ function highlightClothes(ids) {
 
 // --- FUNZIONE REGISTRAZIONE ---
 async function handleRegister() {
-    const username = document.getElementById('reg-username').value;
-    const email = document.getElementById('reg-email').value;
-    const password = document.getElementById('reg-password').value;
+    const username = document.getElementById('reg-username').value.trim();
+    const email = document.getElementById('reg-email').value.trim();
+    const password = document.getElementById('reg-password').value.trim();
     const errorMsg = document.getElementById('reg-error');
     const successMsg = document.getElementById('reg-success');
     const btn = document.getElementById('reg-button');
 
+
+
+    // 1. Controllo preventivo: Campi vuoti
     if (!username || !email || !password) {
-        errorMsg.innerText = "Tutti i campi sono obbligatori.";
+        errorMsg.innerText = "Tutti i campi sono obbligatori per la registrazione.";
+        successMsg.innerText = ""; // Pulisco eventuale messaggio di successo precedente
         return;
     }
 
@@ -210,12 +229,20 @@ async function handleRegister() {
                 window.location.href = "index.html";
             }, 2000);
         } else {
-            errorMsg.innerText = data.detail || "Errore durante la registrazione";
+            //errorMsg.innerText = data.detail || "Errore durante la registrazione";
             btn.disabled = false;
             btn.innerText = "Crea Account";
+            if (typeof data.detail === 'string') {
+                errorMsg.innerText = data.detail;
+            } else if (Array.isArray(data.detail)) {
+                errorMsg.innerText = "Formato dati non valido (controlla l'email).";
+            } else {
+                errorMsg.innerText = "Errore durante la registrazione. Riprova.";
+            }
         }
     } catch (error) {
-        errorMsg.innerText = "Errore di connessione al server.";
+        console.error("Errore registrazione:", error);
+        errorMsg.innerText = "Connessione al server fallita.";
         btn.disabled = false;
         btn.innerText = "Crea Account";
     }
@@ -260,7 +287,7 @@ function resetConversation() {
     if (suggestionText) suggestionText.innerText = "";
     if (answerDiv) answerDiv.classList.add('hidden');
     if (questionInput) questionInput.value = "";
-    
+
     alert("Conversazione resettata.");
 
 }
