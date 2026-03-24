@@ -130,3 +130,15 @@ textarea {
 .site-footer p {
     margin: 5px 0;
 }
+
+.footer-link {
+    color: inherit; /* Prende il colore grigio del resto del testo */
+    text-decoration: none; /* Rimuove la sottolineatura */
+    font-weight: bold; /* Lo rende leggermente più evidente */
+    transition: color 0.3s;
+}
+
+.footer-link:hover {
+    color: #000; /* Diventa nero quando ci passi sopra con il mouse */
+    text-decoration: underline; /* Appare la sottolineatura solo al passaggio del mouse */
+}
