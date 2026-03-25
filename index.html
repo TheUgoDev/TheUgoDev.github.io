@@ -70,6 +70,16 @@ layout: none
             color: inherit;
             text-decoration: none;
         }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            filter: invert(1) sepia(1) saturate(5) hue-rotate(10deg);
+            /* Rende le frecce gialle */
+        }
+
+        .carousel-item {
+            transition: transform 0.6s ease-in-out;
+        }
     </style>
 </head>
 
@@ -146,72 +156,95 @@ layout: none
                     <div class="mt-4" style="border-top: 1px solid #333; width: 100px; margin: 0 auto;"></div>
                 </div>
             </div>
+            <div id="projectCarousel" class="carousel slide" data-bs-ride="false">
+                <div class="carousel-inner">
 
-            <div class="row align-items-center g-5">
-                <div class="col-lg-6">
-                    <div
-                        style="position: relative; border: 2px solid #ffcc00; padding: 5px; background: #000; box-shadow: 0px 0px 20px rgba(255, 204, 0, 0.2);">
-                        <img src="assets/ai-wardrobe-preview.webp" alt="Armadio Digitale AI Preview" class="img-fluid"
-                            style="width: 100%; height: auto; display: block;">
-                        <div
-                            style="position: absolute; top: 10px; left: 10px; background: #ffcc00; color: #000; padding: 5px 12px; font-weight: bold; font-size: 0.7rem; letter-spacing: 1px;">
-                            AI POWERED
+                    <div class="carousel-item active">
+                        <div class="row align-items-center g-5 px-3">
+                            <div class="col-lg-6">
+                                <div
+                                    style="position: relative; border: 2px solid #ffcc00; padding: 5px; background: #000; box-shadow: 0px 0px 20px rgba(255, 204, 0, 0.2);">
+                                    <img src="assets/ai-wardrobe-preview.webp" alt="Armadio Digitale AI"
+                                        class="img-fluid">
+                                    <div
+                                        style="position: absolute; top: 10px; left: 10px; background: #ffcc00; color: #000; padding: 5px 12px; font-weight: bold; font-size: 0.7rem;">
+                                        AI POWERED</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <h2 class="highlight mb-3 text-uppercase">Armadio Digitale AI</h2>
+                                <p class="lead" style="color: #ffcc00;">Il tuo stile, potenziato dall'Intelligenza
+                                    Artificiale.</p>
+                                <p class="text-secondary">Stylist Personale basato su Gemini AI che impara a conoscere
+                                    il tuo armadio per consigliarti l'outfit perfetto.</p>
+                                <ul class="list-unstyled mb-4">
+                                    <li class="mb-2"><span class="highlight">#</span> <strong>Stylist con
+                                            Memoria:</strong> Ricorda i tuoi gusti.</li>
+                                    <li class="mb-2"><span class="highlight">#</span> <strong>Esperienza
+                                            Vocale:</strong> Gemini Live integrato.</li>
+                                </ul>
+                                <div class="d-flex flex-wrap gap-3 mt-4">
+                                    <a href="https://theugodev.github.io/ai-wardrobe/" class="btn-custom"
+                                        target="_blank" rel="noopener">PROVA LA DEMO</a>
+                                    <a href="#" class="btn btn-outline-warning rounded-0 fw-bold px-4"
+                                        data-bs-toggle="modal" data-bs-target="#modalWardrobe">DETTAGLI TECNICI</a>
+                                    <a href="assets/downloads/ai-wardrobe.apk"
+                                        class="btn btn-outline-warning rounded-0 fw-bold px-4" download><i
+                                            class="bi bi-android2 me-2"></i>APK</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
+                    <div class="carousel-item">
+                        <div class="row align-items-center g-5 px-3">
+                            <div class="col-lg-6">
+                                <div
+                                    style="position: relative; border: 2px solid #ffcc00; padding: 5px; background: #000; box-shadow: 0px 0px 20px rgba(255, 204, 0, 0.2);">
+                                    <img src="assets/ecom-optimizer-preview.webp" alt="EComOptimizer Preview"
+                                        class="img-fluid" style="filter: grayscale(0.5);">
+                                    <div
+                                        style="position: absolute; top: 10px; left: 10px; background: #ffcc00; color: #000; padding: 5px 12px; font-weight: bold; font-size: 0.7rem;">
+                                        SAAS SOLUTION</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <h2 class="highlight mb-3 text-uppercase">EComOptimizer</h2>
+                                <p class="lead" style="color: #ffcc00;">Ottimizzazione Cataloghi E-Commerce via AI.</p>
+                                <p class="text-secondary">Piattaforma SaaS che analizza le foto dei prodotti per
+                                    generare automaticamente titoli SEO, descrizioni e tag pronti per lo store[cite: 25,
+                                    26].</p>
+                                <ul class="list-unstyled mb-4">
+                                    <li class="mb-2"><span class="highlight">#</span> <strong>Analisi Visiva:</strong>
+                                        Riconoscimento marca, modello e colore tramite Gemini Pro Vision[cite: 29, 35].
+                                    </li>
+                                    <li class="mb-2"><span class="highlight">#</span> <strong>Export
+                                            Multi-Piattaforma:</strong> Generazione file CSV per Shopify, WooCommerce ed
+                                        eBay[cite: 41].</li>
+                                    <li class="mb-2"><span class="highlight">#</span> <strong>Smart Dashboard:</strong>
+                                        Gestione crediti e storico prodotti con ricerca live[cite: 33, 38].</li>
+                                </ul>
+                                <div class="d-flex flex-wrap gap-3 mt-4">
+                                    <a href="#" class="btn-custom opacity-50 disabled">COMING SOON</a>
+                                    <a href="#" class="btn btn-outline-warning rounded-0 fw-bold px-4"
+                                        data-bs-toggle="modal" data-bs-target="#modalEcom">DETTAGLI TECNICI</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="col-lg-6">
-                    <h2 class="highlight mb-3" style="text-transform: uppercase; letter-spacing: 2px;">Armadio Digitale
-                        AI </h2>
-                    <p class="lead" style="color: #ffcc00; font-weight: 500;">Il tuo stile, potenziato dall'Intelligenza
-                        Artificiale.</p>
-
-                    <p class="text-secondary">
-                        AI Wardrobe non è solo un catalogo digitale, ma uno <strong>Stylist Personale basato su Gemini
-                            AI</strong> che impara a conoscere il tuo armadio per consigliarti l'outfit perfetto.
-                    </p>
-
-                    <ul class="list-unstyled mb-4">
-                        <li class="mb-2"><span class="highlight">#</span> <strong>Armadio Intelligente:</strong> Analisi
-                            automatica capi e rimozione sfondo.</li>
-                        <li class="mb-2"><span class="highlight">#</span> <strong>Stylist con Memoria:</strong> Chat che
-                            ricorda i tuoi gusti e i tuoi capi.</li>
-                        <li class="mb-2"><span class="highlight">#</span> <strong>Esperienza Vocale:</strong>
-                            Integrazione Gemini Live per l'uso a mani libere.</li>
-                    </ul>
-
-                    <div class="d-flex gap-3 mt-4">
-                        <a href="https://theugodev.github.io/ai-wardrobe/" class="btn-custom"
-                            style="text-decoration: none;" target="_blank" rel="noopener noreferrer">
-                            PROVA LA DEMO
-                        </a>
-                        <a href="#" class="btn btn-outline-warning rounded-0 fw-bold px-4" style="border-width: 2px;"
-                            data-bs-toggle="modal" data-bs-target="#modalWardrobe" role="button">
-                            DETTAGLI TECNICI
-                        </a>
-                        <a href="assets/downloads/ai-wardrobe.apk"
-                            class="btn btn-outline-warning rounded-0 fw-bold px-4" style="border-width: 2px;"
-                            download="AI_Wardrobe_TheUgoDev.apk">
-                            <i class="bi bi-android2 me-2"></i>SCARICA APK
-                        </a>
-                    </div>
-                    <div class="mt-4 p-3" style="background: rgba(255, 204, 0, 0.02); border-left: 3px solid #ffcc00;">
-                        <p class="text-secondary mb-2" style="font-size: 0.8rem; line-height: 1.5;">
-                            <strong class="highlight">Nota sulle prestazioni:</strong> Prototipo attualmente servito su
-                            infrastruttura <span class="text-white">Free Tier</span>. Le performance di elaborazione
-                            sono soggette ai limiti di quota dei modelli Gemini.
-                        </p>
-
-                        <p class="mb-0" style="font-size: 0.8rem; line-height: 1.5; color: #e0e0e0;">
-                            <strong class="highlight">📈 Scaling & Investment:</strong> Il core tecnologico è
-                            ottimizzato per una migrazione immediata a sistemi <span class="text-white">Tier-1</span>.
-                            Valuto proposte di investimento o cessione del progetto per l'espansione su larga scala. Per
-                            dettagli tecnici e commerciali, consulta la <a href="contatti.html"
-                                class="highlight text-decoration-underline">sezione contatti</a>.
-                        </p>
-                    </div>
-                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel"
+                    data-bs-slide="prev" style="width: 5%; justify-content: start;">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel"
+                    data-bs-slide="next" style="width: 5%; justify-content: end;">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </button>
             </div>
+        </div>
         </div>
     </section>
 
@@ -296,6 +329,31 @@ layout: none
                         data-bs-dismiss="modal">Chiudi</button>
                     <a href="https://theugodev.github.io/ai-wardrobe/" class="btn-custom py-1 px-3"
                         style="font-size: 0.9rem; text-decoration: none;">APRI APP</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modalEcom" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content bg-black border border-warning" style="color: #fff;">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title highlight">// DOCUMENTAZIONE ECOMOPTIMIZER</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <h5 class="highlight">Architettura del Sistema [cite: 27]</h5>
+                    <p class="small text-secondary">Backend in Flask con gestione database su Supabase per garantire
+                        scalabilità e velocità di risposta[cite: 27, 28].</p>
+                    <h6 class="mt-3 highlight">Workflow AI [cite: 34]</h6>
+                    <ul class="small text-secondary">
+                        <li>Upload foto e analisi visiva dettagliata tramite Gemini Pro Vision[cite: 34, 35, 29].</li>
+                        <li>Generazione automatica metadati SEO e categorie merceologiche[cite: 36, 37].</li>
+                        <li>Esportazione massiva in formato CSV per e-commerce[cite: 41].</li>
+                    </ul>
+                    <div class="p-3 mt-3" style="background: rgba(255, 204, 0, 0.1); border-left: 4px solid #ffcc00;">
+                        <p class="mb-0 small"><strong>Business Model:</strong> Sistema SaaS con ricarica crediti tramite
+                            PayPal SDK.</p>
+                    </div>
                 </div>
             </div>
         </div>
