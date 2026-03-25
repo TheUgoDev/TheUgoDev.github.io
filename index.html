@@ -45,6 +45,21 @@ layout: none
             background-color: #e6b800;
         }
 
+        /* Posizionamento etichetta AI POWERED / SAAS SOLUTION */
+        .project-badge {
+            position: absolute;
+            top: -15px;
+            /* Spostato sopra il bordo dell'immagine */
+            left: 10px;
+            background: #ffcc00;
+            color: #000;
+            padding: 5px 12px;
+            font-weight: bold;
+            font-size: 0.7rem;
+            z-index: 10;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
         .gallery-img {
             width: 100%;
             height: 300px;
@@ -87,9 +102,9 @@ layout: none
             right: -70px;
         }
 
+        /* Filtro Giallo Perfetto per le frecce */
         .carousel-control-prev-icon,
         .carousel-control-next-icon {
-            /* Questo filtro specifico trasforma il bianco in #ffcc00 */
             filter: invert(74%) sepia(95%) saturate(1915%) hue-rotate(360deg) brightness(105%) contrast(105%);
             width: 3.5rem;
             height: 3.5rem;
@@ -252,7 +267,8 @@ layout: none
                                         class="img-fluid" style="filter: grayscale(0.5);">
                                     <div
                                         style="position: absolute; top: 10px; left: 10px; background: #ffcc00; color: #000; padding: 5px 12px; font-weight: bold; font-size: 0.7rem;">
-                                        SAAS SOLUTION</div>
+                                        <div class="project-badge">SAAS SOLUTION</div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -272,7 +288,10 @@ layout: none
                                         Gestione crediti e storico prodotti con ricerca live[cite: 33, 38].</li>
                                 </ul>
                                 <div class="d-flex flex-wrap gap-3 mt-4">
-                                    <a href="#" class="btn-custom opacity-50 disabled">COMING SOON</a>
+                                    <a href="https://ecomoptimizer.onrender.com/" class="btn-custom"
+                                        style="text-decoration: none;" target="_blank" rel="noopener noreferrer">
+                                        APRI APP
+                                    </a>
                                     <a href="#" class="btn btn-outline-warning rounded-0 fw-bold px-4"
                                         data-bs-toggle="modal" data-bs-target="#modalEcom">DETTAGLI TECNICI</a>
                                 </div>
