@@ -71,44 +71,60 @@ layout: none
             text-decoration: none;
         }
 
-        /* Rende le frecce gialle, più grandi e distanziate */
+        /* Forza le frecce al giallo #ffcc00 e ne regola la posizione */
         .carousel-control-prev,
         .carousel-control-next {
             width: 5%;
-            /* Area di clic più stretta per non sovrapporsi al testo */
+            opacity: 1;
+            /* Rende le frecce sempre visibili, non solo al passaggio del mouse */
         }
 
         .carousel-control-prev {
-            left: -60px;
-            /* Allontana la freccia sinistra dall'immagine */
+            left: -70px;
         }
 
         .carousel-control-next {
-            right: -60px;
-            /* Allontana la freccia destra dal testo */
+            right: -70px;
         }
 
         .carousel-control-prev-icon,
         .carousel-control-next-icon {
-            filter: invert(80%) sepia(50%) saturate(3000%) hue-rotate(10deg);
-            /* Forza il giallo */
+            /* Questo filtro specifico trasforma il bianco in #ffcc00 */
+            filter: invert(74%) sepia(95%) saturate(1915%) hue-rotate(360deg) brightness(105%) contrast(105%);
             width: 3.5rem;
             height: 3.5rem;
         }
 
-        /* Gestione per Mobile: riporta le frecce all'interno per evitare che escano dallo schermo */
-        @media (max-width: 1200px) {
+        /* Hover: leggero aumento di luminosità */
+        .carousel-control-prev:hover .carousel-control-prev-icon,
+        .carousel-control-next:hover .carousel-control-next-icon {
+            filter: invert(74%) sepia(95%) saturate(1915%) hue-rotate(360deg) brightness(120%) contrast(105%);
+        }
+
+        /* Adattamento per schermi medi e piccoli */
+        @media (max-width: 1300px) {
             .carousel-control-prev {
-                left: -20px;
+                left: -40px;
             }
 
             .carousel-control-next {
-                right: -20px;
+                right: -40px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .carousel-control-prev {
+                left: 5px;
             }
 
-            .carousel-inner {
-                padding: 0 40px;
-                /* Crea spazio interno per le frecce */
+            .carousel-control-next {
+                right: 5px;
+            }
+
+            .carousel-control-prev-icon,
+            .carousel-control-next-icon {
+                width: 2.5rem;
+                height: 2.5rem;
             }
         }
     </style>
@@ -267,12 +283,14 @@ layout: none
                 </div>
 
                 <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel"
-                    data-bs-slide="prev" style="width: 5%; justify-content: start;">
+                    data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Precedente</span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel"
-                    data-bs-slide="next" style="width: 5%; justify-content: end;">
+                    data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Successivo</span>
                 </button>
             </div>
         </div>
