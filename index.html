@@ -304,8 +304,10 @@ layout: none
                                             Multi-Piattaforma:</strong>
                                         Scarica i tuoi dati in formato CSV compatibile con Shopify, WooCommerce ed eBay.
                                     </li>
-                                    <li class="mb-2"><span class="highlight">#</span> <strong>Gestione Crediti Smart:</strong>
-                                        Sistema di ricarica flessibile tramite PayPal per pagare solo ciò che utilizzi realmente.
+                                    <li class="mb-2"><span class="highlight">#</span> <strong>Gestione Crediti
+                                            Smart:</strong>
+                                        Sistema di ricarica flessibile tramite PayPal per pagare solo ciò che utilizzi
+                                        realmente.
                                     </li>
                                 </ul>
                                 <div class="d-flex flex-wrap gap-3 mt-4">
@@ -422,27 +424,66 @@ layout: none
             </div>
         </div>
     </div>
+
     <div class="modal fade" id="modalEcom" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content bg-black border border-warning" style="color: #fff;">
                 <div class="modal-header border-secondary">
-                    <h5 class="modal-title highlight">// DOCUMENTAZIONE ECOMOPTIMIZER</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    <h5 class="modal-title highlight">DOCUMENTAZIONE ECOMOPTIMIZER</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
                 </div>
-                <div class="modal-body p-4">
-                    <h5 class="highlight">Architettura del Sistema [cite: 27]</h5>
-                    <p class="small text-secondary">Backend in Flask con gestione database su Supabase per garantire
-                        scalabilità e velocità di risposta[cite: 27, 28].</p>
-                    <h6 class="mt-3 highlight">Workflow AI [cite: 34]</h6>
-                    <ul class="small text-secondary">
-                        <li>Upload foto e analisi visiva dettagliata tramite Gemini Pro Vision[cite: 34, 35, 29].</li>
-                        <li>Generazione automatica metadati SEO e categorie merceologiche[cite: 36, 37].</li>
-                        <li>Esportazione massiva in formato CSV per e-commerce[cite: 41].</li>
+                <div class="modal-body p-4" style="max-height: 75vh; overflow-y: auto;">
+
+                    <h5 class="highlight mb-3">Architettura del Sistema</h5>
+                    <p class="small text-secondary mb-3">L'infrastruttura è progettata per gestire flussi di dati
+                        e-commerce in modo asincrono e sicuro.</p>
+                    <ul class="list-unstyled ps-3 border-start border-secondary mb-4">
+                        <li class="mb-2 small"><strong class="text-white">Backend:</strong> Sviluppato in Flask (Python)
+                            per garantire una logica di business flessibile e una gestione efficiente delle rotte API.
+                        </li>
+                        <li class="mb-2 small"><strong class="text-white">Database & Auth:</strong> Utilizzo di Supabase
+                            (PostgreSQL) per una gestione centralizzata delle sessioni utente, dello storico prodotti e
+                            della sicurezza dei dati.</li>
+                        <li class="small"><strong class="text-white">Hosting:</strong> Deploy continuo tramite
+                            Render.com integrato con GitHub per garantire massima disponibilità del servizio.</li>
                     </ul>
-                    <div class="p-3 mt-3" style="background: rgba(255, 204, 0, 0.1); border-left: 4px solid #ffcc00;">
-                        <p class="mb-0 small"><strong>Business Model:</strong> Sistema SaaS con ricarica crediti tramite
-                            PayPal SDK.</p>
+
+                    <h5 class="highlight mb-3">Workflow AI & Vision</h5>
+                    <p class="small text-secondary mb-3">Il cuore dell'applicazione sfrutta modelli di deep learning per
+                        l'analisi del catalogo.</p>
+                    <ul class="list-unstyled ps-3 border-start border-warning mb-4">
+                        <li class="mb-2 small"><strong class="text-white">AI Engine:</strong> Integrazione con Google
+                            Gemini Pro Vision per il riconoscimento automatico di marca, modello e attributi visivi
+                            partendo dall'upload dell'immagine.</li>
+                        <li class="mb-2 small"><strong class="text-white">Data Generation:</strong> Elaborazione
+                            algoritmica di titoli SEO, descrizioni persuasive e categorie merceologiche basate
+                            sull'analisi visiva.</li>
+                        <li class="small"><strong class="text-white">Export Engine:</strong> Modulo di esportazione
+                            massiva in formato CSV, pre-configurato per l'importazione diretta su Shopify, WooCommerce
+                            ed eBay.</li>
+                    </ul>
+
+                    <h5 class="highlight mb-3">Business Model & Scaling</h5>
+                    <p class="small text-secondary mb-3">Il progetto è un sistema SaaS (Software as a Service) pronto
+                        per la commercializzazione.</p>
+
+                    <div class="p-3 mb-3" style="background: rgba(255, 204, 0, 0.05); border: 1px dashed #ffcc00;">
+                        <p class="mb-2 small"><strong class="highlight">Monetizzazione:</strong> Sistema di ricarica
+                            crediti integrato tramite PayPal SDK, con aggiornamento istantaneo del saldo utente via API
+                            sicura.</p>
+                        <p class="mb-0 small"><strong class="highlight">Scaling & Investment:</strong> L'architettura
+                            modulare permette l'integrazione immediata di nuovi modelli AI o l'espansione verso la
+                            gestione di magazzini enterprise. <span class="text-white fw-bold">Valuto proposte di
+                                partnership o acquisizione del codice sorgente.</span></p>
                     </div>
+
+                </div>
+                <div class="modal-footer border-secondary">
+                    <button type="button" class="btn btn-outline-secondary btn-sm"
+                        data-bs-dismiss="modal">Chiudi</button>
+                    <a href="https://ecomoptimizer.onrender.com/" class="btn-custom py-1 px-3"
+                        style="font-size: 0.9rem; text-decoration: none;" target="_blank">PROVA L'APP</a>
                 </div>
             </div>
         </div>
