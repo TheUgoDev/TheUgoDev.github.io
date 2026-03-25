@@ -71,22 +71,44 @@ layout: none
             text-decoration: none;
         }
 
-        /* Rende le frecce del carosello gialle e più visibili */
-        .carousel-control-prev-icon,
-        .carousel-control-next-icon {
-            filter: invert(1) sepia(1) saturate(5) hue-rotate(10deg);
-            width: 3rem;
-            height: 3rem;
+        /* Rende le frecce gialle, più grandi e distanziate */
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 5%;
+            /* Area di clic più stretta per non sovrapporsi al testo */
         }
 
-        /* Evita che le frecce finiscano sopra il testo su schermi piccoli */
-        @media (max-width: 991px) {
+        .carousel-control-prev {
+            left: -60px;
+            /* Allontana la freccia sinistra dall'immagine */
+        }
 
-            .carousel-control-prev,
+        .carousel-control-next {
+            right: -60px;
+            /* Allontana la freccia destra dal testo */
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            filter: invert(80%) sepia(50%) saturate(3000%) hue-rotate(10deg);
+            /* Forza il giallo */
+            width: 3.5rem;
+            height: 3.5rem;
+        }
+
+        /* Gestione per Mobile: riporta le frecce all'interno per evitare che escano dallo schermo */
+        @media (max-width: 1200px) {
+            .carousel-control-prev {
+                left: -20px;
+            }
+
             .carousel-control-next {
-                top: 20%;
-                /* Sposta le frecce più in alto, verso l'immagine */
-                height: 30%;
+                right: -20px;
+            }
+
+            .carousel-inner {
+                padding: 0 40px;
+                /* Crea spazio interno per le frecce */
             }
         }
     </style>
@@ -165,7 +187,7 @@ layout: none
                     <div class="mt-4" style="border-top: 1px solid #333; width: 100px; margin: 0 auto;"></div>
                 </div>
             </div>
-            <div id="projectCarousel" class="carousel slide" data-bs-ride="false">
+            <div id="projectCarousel" class="carousel slide px-lg-5" data-bs-ride="false">
                 <div class="carousel-inner">
 
                     <div class="carousel-item active">
