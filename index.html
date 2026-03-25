@@ -45,19 +45,21 @@ layout: none
             background-color: #e6b800;
         }
 
-        /* Posizionamento etichetta AI POWERED / SAAS SOLUTION */
+        /* Badge Giallo sopra l'immagine */
         .project-badge {
             position: absolute;
-            top: -15px;
-            /* Spostato sopra il bordo dell'immagine */
-            left: 10px;
-            background: #ffcc00;
+            top: -20px;
+            /* Lo sposta sopra la linea del bordo */
+            left: 20px;
+            background-color: #ffcc00;
             color: #000;
-            padding: 5px 12px;
+            padding: 5px 15px;
             font-weight: bold;
-            font-size: 0.7rem;
-            z-index: 10;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            z-index: 100;
+            /* Lo porta in primo piano */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
         }
 
         .gallery-img {
@@ -102,18 +104,31 @@ layout: none
             right: -70px;
         }
 
-        /* Filtro Giallo Perfetto per le frecce */
+        /* Frecce Gialle #ffcc00 */
         .carousel-control-prev-icon,
         .carousel-control-next-icon {
+            /* Filtro ricalibrato per il giallo del tuo brand */
             filter: invert(74%) sepia(95%) saturate(1915%) hue-rotate(360deg) brightness(105%) contrast(105%);
             width: 3.5rem;
             height: 3.5rem;
         }
 
-        /* Hover: leggero aumento di luminosità */
-        .carousel-control-prev:hover .carousel-control-prev-icon,
-        .carousel-control-next:hover .carousel-control-next-icon {
-            filter: invert(74%) sepia(95%) saturate(1915%) hue-rotate(360deg) brightness(120%) contrast(105%);
+        .carousel-control-prev {
+            left: -80px;
+        }
+
+        .carousel-control-next {
+            right: -80px;
+        }
+
+        @media (max-width: 1200px) {
+            .carousel-control-prev {
+                left: -20px;
+            }
+
+            .carousel-control-next {
+                right: -20px;
+            }
         }
 
         /* Adattamento per schermi medi e piccoli */
