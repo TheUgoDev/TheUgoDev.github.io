@@ -58,19 +58,26 @@ layout: none
         /* Forza l'altezza minima su desktop per bloccare il footer */
         @media (min-width: 992px) {
             #projectCarousel .carousel-inner {
-                min-height: 650px;
-                /* Altezza fissa del contenitore */
+                min-height: 750px;
+                /* Aumentato per ospitare tutti i pulsanti */
             }
 
             #projectCarousel .carousel-item {
-                height: 650px;
+                /* Usiamo min-height invece di height fissa */
+                min-height: 750px;
+                height: auto;
             }
 
             #projectCarousel .carousel-item .row {
-                height: 100%;
+                min-height: 750px;
                 align-items: center;
-                /* Centra il contenuto verticalmente */
             }
+        }
+
+        /* Fix per i pulsanti: evita che vadano a capo in modo disordinato */
+        .btn-outline-warning {
+            white-space: nowrap;
+            border-width: 2px !important;
         }
 
         /* Frecce Gialle */
