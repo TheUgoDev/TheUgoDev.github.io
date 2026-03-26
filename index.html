@@ -13,111 +13,136 @@ layout: none
     <title>TheUgoDev | Esperto AI & Software Executor</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-    /* 1. STILI GENERALI */
-    body {
-        background-color: #000;
-        color: #fff;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        margin: 0;
-        padding: 0;
-    }
-
-    .hero-section {
-        padding: 80px 0;
-        border-bottom: 2px solid #ffcc00;
-    }
-
-    .highlight {
-        color: #ffcc00;
-        font-weight: bold;
-        background: none !important;
-    }
-
-    a {
-        color: inherit;
-        text-decoration: none;
-    }
-
-    /* 2. PULSANTI E CARD */
-    .btn-custom {
-        background-color: #ffcc00;
-        color: #000;
-        font-weight: bold;
-        border-radius: 0;
-        padding: 10px 30px;
-        text-decoration: none;
-        display: inline-block;
-        transition: 0.3s;
-    }
-
-    .btn-custom:hover {
-        background-color: #e6b800;
-        color: #000;
-    }
-
-    .card-custom {
-        background: #111;
-        border: 1px solid #333;
-        padding: 20px;
-        height: 100%;
-    }
-
-    /* 3. CAROSELLO E STRUTTURA PROGETTI */
-    /* Questa regola è fondamentale per bloccare il footer */
-    #projectCarousel .carousel-item {
-        min-height: 700px; /* Aumentato per sicurezza */
-    }
-
-    @media (min-width: 992px) {
-        #projectCarousel .carousel-item {
-            display: flex;
-            align-items: center;
+        /* 1. STILI GENERALI */
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
         }
-    }
 
-    /* Frecce: Stile e Colore */
-    .carousel-control-prev,
-    .carousel-control-next {
-        width: 5%;
-        opacity: 1;
-        z-index: 10;
-    }
-
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-        filter: invert(74%) sepia(95%) saturate(1915%) hue-rotate(360deg) brightness(105%) contrast(105%);
-        width: 3.5rem;
-        height: 3.5rem;
-    }
-
-    /* Posizionamento Frecce Responsive */
-    .carousel-control-prev { left: -90px; }
-    .carousel-control-next { right: -90px; }
-
-    @media (max-width: 1400px) {
-        .carousel-control-prev { left: -50px; }
-        .carousel-control-next { right: -50px; }
-    }
-
-    @media (max-width: 1200px) {
-        .carousel-control-prev { left: -30px; }
-        .carousel-control-next { right: -30px; }
-    }
-
-    @media (max-width: 991px) {
-        #projectCarousel .carousel-item {
-            min-height: auto; /* Su mobile l'altezza torna libera */
-            padding-top: 30px;
-            padding-bottom: 30px;
+        .hero-section {
+            padding: 80px 0;
+            border-bottom: 2px solid #ffcc00;
         }
-        .carousel-control-prev { left: 0; }
-        .carousel-control-next { right: 0; }
-        .carousel-control-prev-icon, .carousel-control-next-icon {
-            width: 2.5rem;
-            height: 2.5rem;
+
+        .highlight {
+            color: #ffcc00;
+            font-weight: bold;
+            background: none !important;
         }
-    }
-</style>
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* 2. PULSANTI E CARD */
+        .btn-custom {
+            background-color: #ffcc00;
+            color: #000 !important;
+            font-weight: bold;
+            border-radius: 0;
+            padding: 10px 30px;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .btn-custom:hover {
+            background-color: #e6b800;
+        }
+
+        /* 3. CAROSELLO (FIX SALTO FOOTER) */
+        /* Forza l'altezza minima su desktop per bloccare il footer */
+        @media (min-width: 992px) {
+            #projectCarousel .carousel-inner {
+                min-height: 650px;
+                /* Altezza fissa del contenitore */
+            }
+
+            #projectCarousel .carousel-item {
+                height: 650px;
+            }
+
+            #projectCarousel .carousel-item .row {
+                height: 100%;
+                align-items: center;
+                /* Centra il contenuto verticalmente */
+            }
+        }
+
+        /* Frecce Gialle */
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 5%;
+            opacity: 1;
+            z-index: 10;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            filter: invert(74%) sepia(95%) saturate(1915%) hue-rotate(360deg) brightness(105%) contrast(105%);
+            width: 3.5rem;
+            height: 3.5rem;
+        }
+
+        /* Posizionamento Frecce */
+        .carousel-control-prev {
+            left: -90px;
+        }
+
+        .carousel-control-next {
+            right: -90px;
+        }
+
+        @media (max-width: 1400px) {
+            .carousel-control-prev {
+                left: -50px;
+            }
+
+            .carousel-control-next {
+                right: -50px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .carousel-control-prev {
+                left: -30px;
+            }
+
+            .carousel-control-next {
+                right: -30px;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 991px) {
+            #projectCarousel .carousel-inner {
+                min-height: auto;
+            }
+
+            #projectCarousel .carousel-item {
+                height: auto;
+                padding: 40px 0;
+            }
+
+            .carousel-control-prev {
+                left: 0;
+            }
+
+            .carousel-control-next {
+                right: 0;
+            }
+
+            .carousel-control-prev-icon,
+            .carousel-control-next-icon {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
