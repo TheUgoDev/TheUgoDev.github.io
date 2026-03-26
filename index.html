@@ -96,6 +96,24 @@ layout: none
             /* Rende le frecce sempre visibili, non solo al passaggio del mouse */
         }
 
+        /* CORREZIONE: Blocca l'altezza del carosello per evitare lo scatto del footer */
+        @media (min-width: 992px) {
+            #projectCarousel .carousel-item {
+                min-height: 650px;
+                /* Altezza fissa per schermi grandi */
+                display: flex;
+                align-items: center;
+                /* Centra verticalmente il contenuto */
+            }
+        }
+
+        /* Su mobile, lasciamo che l'altezza sia automatica per adattarsi ai testi impilati */
+        @media (max-width: 991px) {
+            #projectCarousel .carousel-item {
+                min-height: auto;
+            }
+        }
+
         .carousel-control-prev {
             left: -70px;
         }
@@ -254,7 +272,7 @@ layout: none
                                     Artificiale.</p>
                                 <p class="text-secondary">Stylist Personale basato su Gemini AI che impara a conoscere
                                     il tuo armadio per consigliarti l'outfit perfetto.</p>
-                                <ul class="list-unstyled mb-4">
+                                <ul class="list-unstyled mb-5">
                                     <li class="mb-2"><span class="highlight">#</span> <strong>Stylist con
                                             Memoria:</strong> Ricorda i tuoi gusti.</li>
                                     <li class="mb-2"><span class="highlight">#</span> <strong>Esperienza
@@ -284,7 +302,7 @@ layout: none
                                             class="highlight text-decoration-underline">sezione contatti</a>.
                                     </p>
                                 </div>
-                                
+
                                 <div class="d-flex flex-wrap gap-3 mt-4">
                                     <a href="https://theugodev.github.io/ai-wardrobe/" class="btn-custom"
                                         target="_blank" rel="noopener">PROVA LA DEMO</a>
