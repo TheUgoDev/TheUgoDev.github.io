@@ -13,6 +13,7 @@ layout: none
     <title>TheUgoDev | Esperto AI & Software Executor</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        /* 1. STILI GENERALI */
         body {
             background-color: #000;
             color: #fff;
@@ -32,123 +33,114 @@ layout: none
             background: none !important;
         }
 
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* 2. PULSANTI E CARD */
         .btn-custom {
             background-color: #ffcc00;
-            color: #000;
+            color: #000 !important;
             font-weight: bold;
             border-radius: 0;
             padding: 10px 30px;
             text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
         }
 
         .btn-custom:hover {
             background-color: #e6b800;
         }
 
-        /* Badge Giallo sopra l'immagine */
-        .project-badge {
-            position: absolute;
-            top: -20px;
-            /* Lo sposta sopra la linea del bordo */
-            left: 20px;
-            background-color: #ffcc00;
-            color: #000;
-            padding: 5px 15px;
-            font-weight: bold;
-            font-size: 0.75rem;
-            letter-spacing: 1px;
-            z-index: 100;
-            /* Lo porta in primo piano */
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+        /* 3. CAROSELLO (FIX SALTO FOOTER) */
+        /* Forza l'altezza minima su desktop per bloccare il footer */
+        @media (min-width: 992px) {
+            #projectCarousel .carousel-inner {
+                min-height: 750px;
+                /* Aumentato per ospitare tutti i pulsanti */
+            }
+
+            #projectCarousel .carousel-item {
+                /* Usiamo min-height invece di height fissa */
+                min-height: 750px;
+                height: auto;
+            }
+
+            #projectCarousel .carousel-item .row {
+                min-height: 750px;
+                align-items: center;
+            }
         }
 
-        .gallery-img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            border: 1px solid #333;
+        /* Fix per i pulsanti: evita che vadano a capo in modo disordinato */
+        .btn-outline-warning {
+            white-space: nowrap;
+            border-width: 2px !important;
         }
 
-        .card-custom {
-            background: #111;
-            border: 1px solid #333;
-            padding: 20px;
-            height: 100%;
-        }
-
-        .stars {
-            color: #ffcc00;
-        }
-
-        /* Correzione per i link e testi che apparivano blu o bianchi */
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        /* Forza le frecce al giallo #ffcc00 e ne regola la posizione */
+        /* Frecce Gialle */
         .carousel-control-prev,
         .carousel-control-next {
             width: 5%;
             opacity: 1;
-            /* Rende le frecce sempre visibili, non solo al passaggio del mouse */
+            z-index: 10;
         }
 
-        .carousel-control-prev {
-            left: -70px;
-        }
-
-        .carousel-control-next {
-            right: -70px;
-        }
-
-        /* Frecce Gialle #ffcc00 */
         .carousel-control-prev-icon,
         .carousel-control-next-icon {
-            /* Filtro ricalibrato per il giallo del tuo brand */
             filter: invert(74%) sepia(95%) saturate(1915%) hue-rotate(360deg) brightness(105%) contrast(105%);
             width: 3.5rem;
             height: 3.5rem;
         }
 
+        /* Posizionamento Frecce */
         .carousel-control-prev {
-            left: -80px;
+            left: -90px;
         }
 
         .carousel-control-next {
-            right: -80px;
+            right: -90px;
+        }
+
+        @media (max-width: 1400px) {
+            .carousel-control-prev {
+                left: -50px;
+            }
+
+            .carousel-control-next {
+                right: -50px;
+            }
         }
 
         @media (max-width: 1200px) {
             .carousel-control-prev {
-                left: -20px;
+                left: -30px;
             }
 
             .carousel-control-next {
-                right: -20px;
+                right: -30px;
             }
         }
 
-        /* Adattamento per schermi medi e piccoli */
-        @media (max-width: 1300px) {
-            .carousel-control-prev {
-                left: -40px;
-            }
-
-            .carousel-control-next {
-                right: -40px;
-            }
-        }
-
+        /* Mobile */
         @media (max-width: 991px) {
+            #projectCarousel .carousel-inner {
+                min-height: auto;
+            }
+
+            #projectCarousel .carousel-item {
+                height: auto;
+                padding: 40px 0;
+            }
+
             .carousel-control-prev {
-                left: 5px;
+                left: 0;
             }
 
             .carousel-control-next {
-                right: 5px;
+                right: 0;
             }
 
             .carousel-control-prev-icon,
@@ -254,7 +246,7 @@ layout: none
                                     Artificiale.</p>
                                 <p class="text-secondary">Stylist Personale basato su Gemini AI che impara a conoscere
                                     il tuo armadio per consigliarti l'outfit perfetto.</p>
-                                <ul class="list-unstyled mb-4">
+                                <ul class="list-unstyled mb-5">
                                     <li class="mb-2"><span class="highlight">#</span> <strong>Stylist con
                                             Memoria:</strong> Ricorda i tuoi gusti.</li>
                                     <li class="mb-2"><span class="highlight">#</span> <strong>Esperienza
@@ -284,7 +276,7 @@ layout: none
                                             class="highlight text-decoration-underline">sezione contatti</a>.
                                     </p>
                                 </div>
-                                
+
                                 <div class="d-flex flex-wrap gap-3 mt-4">
                                     <a href="https://theugodev.github.io/ai-wardrobe/" class="btn-custom"
                                         target="_blank" rel="noopener">PROVA LA DEMO</a>
