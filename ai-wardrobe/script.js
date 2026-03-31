@@ -87,6 +87,10 @@ async function handleLogin() {
 
 // 3. Funzione Upload
 async function handleUpload() {
+
+    alert("Funzione handleUpload partita!"); 
+    console.log("Tentativo di upload iniziato...");
+    
     const fileInput = document.getElementById('file-input');
     const btn = document.getElementById('upload-button');
     const status = document.getElementById('upload-status');
