@@ -4,6 +4,7 @@ if (typeof API_URL === 'undefined') {
 }
 let chatHistory = [];
 
+window.handleUpload = handleUpload;
 
 // 1. Inizializzazione
 window.onload = () => {
@@ -86,16 +87,16 @@ async function handleLogin() {
 } // <--- Questa chiusura mancava o era posizionata male
 
 // 3. Funzione Upload
-async function handleUpload() {
+async function handleUpload() {    
 
-    alert("Funzione handleUpload partita!"); 
-    console.log("Tentativo di upload iniziato...");
-    
     const fileInput = document.getElementById('file-input');
     const btn = document.getElementById('upload-button');
     const status = document.getElementById('upload-status');
     const userId = localStorage.getItem('userId');
     const userEmail = localStorage.getItem('userEmail'); // Salveremo l'email al login
+
+    alert("Funzione handleUpload partita!"); 
+    console.log("Tentativo di upload iniziato...");
     // Controllo di sicurezza: se il pulsante non viene trovato, fermati o stampa un errore
     if (!btn) {
         console.error("Errore: Il pulsante con ID 'upload-button' non è stato trovato nell'HTML!");
