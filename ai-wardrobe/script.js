@@ -298,6 +298,8 @@ function logout() {
 }
 
 function resetConversation() {
+     alert("Conversazione resettata.");
+     
     chatHistory = [];
     // Ripristina il testo del pulsante
     const askBtn = document.getElementById('ask-button');
@@ -305,7 +307,7 @@ function resetConversation() {
         askBtn.innerText = "Invia";
         askBtn.disabled = false; // Assicuriamoci che sia anche cliccabile
     }
-    
+
     document.getElementById('suggestion-text').innerText = "";
     document.getElementById('ai-answer').classList.add('hidden');
     document.getElementById('user-question').value = "";
@@ -315,7 +317,7 @@ function resetConversation() {
     if (answerDiv) answerDiv.classList.add('hidden');
     if (questionInput) questionInput.value = "";
 
-    alert("Conversazione resettata.");
+   
 
 }
 
