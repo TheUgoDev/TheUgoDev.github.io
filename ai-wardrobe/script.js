@@ -90,6 +90,12 @@ async function handleUpload() {
     const status = document.getElementById('upload-status');
     const userId = localStorage.getItem('userId');
     const userEmail = localStorage.getItem('userEmail'); // Salveremo l'email al login
+    // Controllo di sicurezza: se il pulsante non viene trovato, fermati o stampa un errore
+    if (!btn) {
+        console.error("Errore: Il pulsante con ID 'upload-button' non è stato trovato nell'HTML!");
+        return;
+    }
+    
     if (userEmail === "test@test.it") {
         alert("Modalità Demo: non puoi aggiungere capi in questo account.");
         return;
