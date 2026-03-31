@@ -1,5 +1,7 @@
 
-const API_URL = "https://ai-wardrobe-backend-qtz2.onrender.com";
+if (typeof API_URL === 'undefined') {
+    var API_URL = "https://ai-wardrobe-backend-qtz2.onrender.com";
+}
 let chatHistory = [];
 
 
@@ -94,10 +96,9 @@ async function handleUpload() {
     if (!btn) {
         console.error("Errore: Il pulsante con ID 'upload-button' non è stato trovato nell'HTML!");
         return;
-    }else{
-        console.error("Errore: Il pulsante con ID 'upload-button' è stato trovato nell'HTML!");
-
     }
+
+    console.log("Pulsante trovato correttamente!");
 
     if (userEmail === "test@test.it") {
         alert("Modalità Demo: non puoi aggiungere capi in questo account.");
