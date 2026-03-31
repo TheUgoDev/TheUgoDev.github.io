@@ -4,7 +4,7 @@ if (typeof API_URL === 'undefined') {
 }
 let chatHistory = [];
 
-window.handleUpload = handleUpload;
+
 
 // 1. Inizializzazione
 window.onload = () => {
@@ -280,15 +280,6 @@ async function handleRegister() {
 
 // --- LOGICA DI PROTEZIONE UTENTE DEMO ---
 
-// Modifica handleUpload esistente aggiungendo questo all'inizio:
-async function handleUpload() {
-    const userEmail = localStorage.getItem('userEmail');
-    if (userEmail === "test@test.it") {
-        alert("Account Demo: Non puoi aggiungere capi. Registrati con la tua email per farlo!");
-        return;
-    }
-    // ... resto del codice handleUpload esistente ...
-}
 
 // Modifica deleteCapo esistente aggiungendo questo all'inizio:
 async function deleteCapo(itemId) {
