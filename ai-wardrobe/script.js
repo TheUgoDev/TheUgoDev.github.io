@@ -30,6 +30,8 @@ async function handleLogin() {
     const email = document.getElementById('email').value.trim();
     const password = document.getElementById('password').value.trim();
     const errorMsg = document.getElementById('error-msg');
+    const loginBtn = document.getElementById('login-button');
+    
 
     // 1. Controllo preventivo: Campi vuoti
     if (!email || !password) {
