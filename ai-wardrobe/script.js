@@ -299,6 +299,13 @@ function logout() {
 
 function resetConversation() {
     chatHistory = [];
+    // Ripristina il testo del pulsante
+    const askBtn = document.getElementById('ask-button');
+    if (askBtn) {
+        askBtn.innerText = "Invia";
+        askBtn.disabled = false; // Assicuriamoci che sia anche cliccabile
+    }
+    
     document.getElementById('suggestion-text').innerText = "";
     document.getElementById('ai-answer').classList.add('hidden');
     document.getElementById('user-question').value = "";
