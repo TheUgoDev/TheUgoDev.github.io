@@ -37,6 +37,10 @@ async function handleLogin() {
         return;
     }
 
+    // --- AGGIUNTA FEEDBACK CARICAMENTO ---
+    loginBtn.innerText = "Accesso in corso... (Il server gratuito potrebbe richiedere 30s)";
+    loginBtn.disabled = true;
+    errorMsg.innerText = ""; // Pulisce eventuali errori precedenti
 
     try {
         const response = await fetch(`${API_URL}/login`, {
@@ -58,13 +62,22 @@ async function handleLogin() {
             } else if (Array.isArray(data.detail)) {
                 // Questo gestisce gli errori di validazione di FastAPI (Pydantic)
                 errorMsg.innerText = "Dati non validi. Controlla il formato dell'email.";
+                // Ripristina il tasto se fallisce
+                loginBtn.innerText = "Entra nell'armadio";
+                loginBtn.disabled = false;
             } else {
                 errorMsg.innerText = "Credenziali errate o utente non trovato.";
+                // Ripristina il tasto se fallisce
+                loginBtn.innerText = "Entra nell'armadio";
+                loginBtn.disabled = false;
             }
         }
     } catch (error) {
         console.error("Errore login:", error);
-        errorMsg.innerText = "Impossibile connettersi al server. Riprova più tardi.";
+        errorMsg.innerText = "Il server si sta svegliando, riprova tra qualche istante...";
+        // Ripristina il tasto in caso di errore di rete
+        loginBtn.innerText = "Entra nell'armadio";
+        loginBtn.disabled = false;
     }
 } // <--- Questa chiusura mancava o era posizionata male
 
