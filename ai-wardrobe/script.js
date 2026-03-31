@@ -94,8 +94,7 @@ async function handleUpload() {
     const status = document.getElementById('upload-status');
     const userId = localStorage.getItem('userId');
     const userEmail = localStorage.getItem('userEmail'); // Salveremo l'email al login
-
-    alert("Funzione handleUpload partita!"); 
+    
     console.log("Tentativo di upload iniziato...");
     // Controllo di sicurezza: se il pulsante non viene trovato, fermati o stampa un errore
     if (!btn) {
