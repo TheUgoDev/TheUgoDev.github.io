@@ -340,3 +340,7 @@ async function deleteCapo(itemId) {
         alert("Errore di connessione al server.");
     }
 }
+
+window.addEventListener('beforeunload', () => {
+    localStorage.clear();
+});
