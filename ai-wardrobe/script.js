@@ -174,42 +174,57 @@ async function showWardrobe() {
 async function askStylist() {
     const questionInput = document.getElementById('user-question');
     const question = questionInput.value.trim();
-
-    //const question = document.getElementById('user-question').value;
-    const btn = document.getElementById('ask-button');
+    const userId = sessionStorage.getItem('userId');
     const answerDiv = document.getElementById('ai-answer');
     const suggestionText = document.getElementById('suggestion-text');
+    const askBtn = document.getElementById('ask-button');
 
     if (!question) return;
 
-    chatHistory.push({ role: "user", content: question });
+    // 1. Reset visivo: Rimuovi i bordi blu precedenti prima della nuova richiesta
+    document.querySelectorAll('.card').forEach(card => card.classList.remove('highlighted'));
 
-    btn.innerText = "Pensando...";
-    btn.disabled = true;
-    //chatHistory.push({ role: "user", content: question });
-    const userId = sessionStorage.getItem('userId');
+    askBtn.disabled = true;
+    askBtn.innerText = "Pensando...";
+    answerDiv.classList.remove('hidden');
+    suggestionText.innerText = "L'assistente sta analizzando il tuo armadio...";
+
+    // Aggiungi il messaggio dell'utente alla cronologia locale
+    chatHistory.push({ role: "user", content: question });
 
     try {
         const response = await fetch(`${API_URL}/ask-outfit?user_id=${userId}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(chatHistory)
+            body: JSON.stringify(chatHistory) // Invia tutta la storia
         });
 
         const data = await response.json();
-        if (data.suggestion) {
-            //document.getElementById('suggestion-text').innerText = data.suggestion;
+
+        if (response.ok) {
             suggestionText.innerText = data.suggestion;
-            answerDiv.classList.remove('hidden');
+
+            // 2. Aggiungi la risposta dell'assistente alla cronologia 
+            // Fondamentale per far capire a Ollama "cosa" non ti è piaciuto dopo
             chatHistory.push({ role: "model", content: data.suggestion });
-            highlightClothes(data.selected_ids);
-            questionInput.value = "";
+
+            // 3. Evidenzia i nuovi capi
+            if (data.selected_ids && Array.isArray(data.selected_ids)) {
+                data.selected_ids.forEach(id => {
+                    const card = document.querySelector(`[data-id="${id}"]`);
+                    if (card) card.classList.add('highlighted');
+                });
+            }
+        } else {
+            suggestionText.innerText = "Errore: " + (data.detail || "Impossibile ricevere consigli.");
         }
     } catch (error) {
-        console.error("Errore AI:", error);
+        console.error("Errore:", error);
+        suggestionText.innerText = "Il server AI non risponde. Riprova tra poco.";
     } finally {
-        btn.innerText = "Ottieni Consiglio";
-        btn.disabled = false;
+        askBtn.disabled = false;
+        askBtn.innerText = "Invia";
+        questionInput.value = "";
     }
 }
 
